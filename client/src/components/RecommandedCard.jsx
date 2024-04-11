@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-function RecommandedCard({ name, src, label, text, isFavorite, textDesktop }) {
+function RecommandedCard({ name, src, label, text, isFavorite, textdesktop }) {
   const [toggle, setToggle] = useState(isFavorite);
 
   const toggleFunction = () => {
@@ -18,7 +18,7 @@ function RecommandedCard({ name, src, label, text, isFavorite, textDesktop }) {
           <span className="tag">{label}</span>
           <h4>Visitez {name} !</h4>
           <p className="recommanded__text">{text}</p>
-          <p className="recommanded__text__desktop"> {textDesktop}</p>
+          <p className="recommanded__text__desktop"> {textdesktop}</p>
 
           <div className="button__section">
             <div className="button__desktop">
@@ -72,7 +72,7 @@ RecommandedCard.propTypes = {
   label: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   isFavorite: PropTypes.bool.isRequired,
-  textDesktop: PropTypes.string.isRequired,
+  textdesktop: PropTypes.string.isRequired,
 };
 
 export default RecommandedCard;

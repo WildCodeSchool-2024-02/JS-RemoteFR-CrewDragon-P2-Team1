@@ -32,6 +32,8 @@ h3 {
 .recommanded__caroussel {
   display: flex;
   gap: 1.5rem;
+  scroll-behavior: smooth;
+  overflow-y: auto;
 }
 
 /*La carte destinations recommandées*/
