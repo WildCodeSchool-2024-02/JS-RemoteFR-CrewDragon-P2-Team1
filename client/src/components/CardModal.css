@@ -1,0 +1,52 @@
+:root {
+  --color-1: #04adbf;
+  --color-2: #04bfbf;
+  --color-3: #025959;
+  --color-4: #a0a603;
+  --color-5: #f2e0c9;
+  --font-family-1: "Quicksand";
+  --font-family-2: "Radio Canada";
+}
+
+* {
+  font-family: var(--font-family-1);
+}
+
+.modal-header {
+  border: solid red 2px;
+  background-image: url("https://fastly.picsum.photos/id/11/2500/1667.jpg?hmac=xxjFJtAPgshYkysU_aqx2sZir-kIOjNR9vx0te7GycQ");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 30vw;
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.arrow {
+  cursor: pointer;
+}
+
+.modal-content {
+  border: solid 2px green;
+  margin-top: -15px;
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.modal-content-header-heart {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -30px;
+}
+
+.countryH1 {
+  color: var(--color-3);
+}
+
+.heart {
+  cursor: pointer;
+  opacity: 0.6;
+}
