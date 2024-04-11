@@ -1,0 +1,29 @@
+.footer {
+  background-color: #025959;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  font-family: "Quicksand", sans-serif;
+  max-width: 1200px;
+}
+
+.footer-content a {
+  position: absolute;
+  width: 380px;
+  height: 462px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
