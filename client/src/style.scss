@@ -34,9 +34,6 @@ h3 {
   gap: 1.5rem;
 }
 
-.recommanded__text {
-  font-size: 0.8rem;
-}
 /*La carte destinations recommandées*/
 
 .container {
@@ -86,13 +83,25 @@ h4 {
   font-size: 1rem;
 }
 
-.like__button__section {
+.recommanded__text {
+  font-size: 0.8rem;
+}
+
+.recommanded__text__desktop {
+  display: none;
+}
+
+.button__section {
   display: flex;
   height: 2rem;
   justify-content: right;
 }
 
-.button-like {
+.button__desktop {
+  display: none;
+}
+
+.button__like {
   background-color: transparent;
   border: transparent;
   cursor: pointer;
@@ -102,13 +111,14 @@ h4 {
   height: 1.7rem;
 }
 
+/*LA RESPONSIVE*/
+
 @media screen and (min-width: 576px) {
   h3 {
     font-family: $primary-font;
     font-size: 2.7rem;
   }
 
-  /*Le carroussel*/
   .recommanded__section {
     margin: 1rem 7rem;
   }
@@ -122,10 +132,15 @@ h4 {
   .recommanded__text {
     font-size: 1.2rem;
   }
-  /*La carte destinations recommandées*/
+
+  .recommanded__text__desktop {
+    display: block;
+    font-size: 1.2rem;
+  }
 
   .card {
-    width: clamp(20rem, calc(20rem + 2vw), 22rem);
+    width: clamp(24rem, calc(20rem + 2vw), 26rem);
+    height: clamp(36rem, calc(38rem + 2vw), 40em);
   }
 
   img {
@@ -142,5 +157,23 @@ h4 {
 
   .tag {
     font-size: 0.9rem;
+  }
+
+  .button__section {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button__desktop {
+    display: flex;
+  }
+
+  .button__showmore {
+    background-color: transparent;
+    border: transparent;
+    width: 9rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: $primary-font;
   }
 }
