@@ -28,3 +28,21 @@
   font-size: 20px;
   margin-bottom: 10px;
 }
+
+.footer-content img {
+  max-width: 100px;
+  margin-top: 5px;
+  float: right;
+}
+
+.logo {
+  position: absolute;
+  right: 30px;
+  bottom: 5px;
+}
+
+@media screen and (max-width: 576px) {
+  .logo {
+    display: none;
+  }
+}
