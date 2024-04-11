@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap");
+
+$primary-color: #04adbf;
+$second-color: #04bfbf;
+$terciary-color: #025959;
+$color-4: #a0a603;
+$primary-font: "Radio Canada", sans-serif;
+$secondary-font: "Quicksand", sans-serif;
+
+/*Les génériques*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  height: 100vh;
+}
+
+h3 {
+  font-family: $primary-font;
+  font-size: 1.5rem;
+}
+
+/*Le carroussel*/
+.recommanded__section {
+  margin: 2rem;
+}
+
+.recommanded__caroussel {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.recommanded__text {
+  font-size: 0.8rem;
+}
+/*La carte destinations recommandées*/
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin-block: 2rem;
+  gap: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: clamp(11rem, calc(20rem + 2vw), 14rem);
+  overflow: hidden;
+  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  background: white;
+}
+
+img {
+  max-width: 100%;
+  height: 14rem;
+  display: block;
+  object-fit: cover;
+}
+
+.card__body {
+  padding: 1rem 1rem 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tag {
+  align-self: flex-start;
+  padding: 0.25em 0.75em;
+  border-radius: 1em;
+  font-size: 0.75rem;
+  background: #56ccf2;
+  background: linear-gradient(to right, $second-color, $color-4);
+  color: #fafafa;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+.like__button__section {
+  display: flex;
+  height: 2rem;
+  justify-content: right;
+}
+
+.button-like {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+
+.like {
+  height: 1.7rem;
+}
+
+@media screen and (min-width: 576px) {
+  h3 {
+    font-family: $primary-font;
+    font-size: 2.7rem;
+  }
+
+  /*Le carroussel*/
+  .recommanded__section {
+    margin: 1rem 7rem;
+  }
+
+  .recommanded__caroussel {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .recommanded__text {
+    font-size: 1.2rem;
+  }
+  /*La carte destinations recommandées*/
+
+  .card {
+    width: clamp(20rem, calc(20rem + 2vw), 22rem);
+  }
+
+  img {
+    height: auto;
+  }
+
+  .card__body {
+    padding: 1rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  .tag {
+    font-size: 0.9rem;
+  }
+}
