@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { useClickAway } from "@uidotdev/usehooks";
 import { useRef, useState } from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { routes } from "../routes";
+import routes from "../routes";
 import logo from "../assets/images/GlobPrewiew.png";
 
 function HeaderNavMobile() {
@@ -44,8 +43,14 @@ function HeaderNavMobile() {
                         className=""
                         href={route.href}
                       >
-                        <img src={route.Icon} alt="icon" className="iconNav" />
-                        <span className="linkHeader">{route.title}</span>
+                        <span className="linkHeader">
+                          <img
+                            src={route.Icon}
+                            alt="icon"
+                            className="iconNav"
+                          />
+                          {route.title}
+                        </span>
                       </a>
                     </motion.li>
                   ))}
