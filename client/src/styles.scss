@@ -1,0 +1,98 @@
+$primary-font: "Radio Canada", sans-serif;
+$secondary-font: "Quicksand", sans-serif;
+$primary-color: #04adbf;
+$second-color: #04bfbf;
+$terciary-color: #025959;
+$color-4: #a0a603;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap");
+* {
+  margin: 0;
+}
+.HearderContainer {
+  background: linear-gradient($primary-color, $second-color, $terciary-color);
+  padding-bottom: 7rem;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  color: aliceblue;
+}
+
+.HearderTitle {
+  display: grid;
+  justify-content: center;
+  margin-top: -3.5rem;
+}
+.HearderTitle p {
+  padding-bottom: 1px;
+  font-family: $secondary-font;
+  font-weight: 100;
+}
+.HearderTitle h1 {
+  padding-bottom: 10px;
+  font-family: $primary-font;
+  font-weight: 400;
+}
+.headerInput {
+  width: 18rem;
+  border-radius: 5px;
+  outline: none;
+  border: solid 1px white;
+  padding-left: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-family: $primary-font;
+  font-weight: 100;
+  font-size: 0.8rem;
+  background-image: url("./assets/images/chercher.png");
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: 5px 5px;
+}
+
+.NavLogo {
+  display: flex;
+  justify-content: space-between;
+}
+
+#HeaderLogo {
+  margin-top: 10px;
+  width: 6rem;
+  height: 6rem;
+}
+
+.NavLogo * {
+  text-decoration: none;
+  color: white;
+}
+
+.ulHearder {
+  display: flex;
+  z-index: 8;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  text-decoration: none;
+  list-style-type: none;
+  background: linear-gradient(0, transparent, $terciary-color);
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 50px;
+  width: 100%;
+}
+.ulHearder li {
+  font-family: $primary-font;
+  font-weight: 400;
+  padding-right: 1.5rem;
+}
+.ulHearder span:hover {
+  font-family: $primary-font;
+  color: #025959;
+}
+.hamburger-react {
+  z-index: 9;
+}
+.iconNav {
+  width: 12px;
+  height: 12px;
+  padding-right: 5px;
+}
