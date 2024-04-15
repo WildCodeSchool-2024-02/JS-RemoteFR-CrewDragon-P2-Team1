@@ -12,6 +12,13 @@
   font-family: var(--font-family-1);
 }
 
+@media screen and (min-width: 992px) {
+  .modal-container {
+    padding: 80px;
+    background: linear-gradient(to right, var(--color-5), var(--color-2));
+  }
+}
+
 .modal-header {
   background-image: url("src/assets/images/Mexico.jpg");
   background-size: cover;
