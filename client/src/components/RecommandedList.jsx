@@ -1,3 +1,4 @@
+import { useState } from "react";
 import RecommandedCard from "./RecommandedCard";
 
 const destinations = [
@@ -10,6 +11,7 @@ const destinations = [
     TextDesktop:
       "De ses plages tropicales aux sites archéologiques, chaque coin du Mexique offre une expérience unique. Profitez de la cuisine savoureuse, des villes coloniales pittoresques et des festivités colorées.",
     isFavorite: true,
+    city: "Mexico",
   },
   {
     ID: 2,
@@ -20,6 +22,7 @@ const destinations = [
     TextDesktop:
       "Au Vietnam les rizières en terrasses verdoyantes et les baies karstiques spectaculaires comme celles d'Ha Long vous attendent. Plongez dans l'histoire captivante et la culture vibrante du Vietnam.",
     isFavorite: false,
+    city: "Hanoi",
   },
   {
     ID: 3,
@@ -30,10 +33,11 @@ const destinations = [
     TextDesktop:
       "L'Angleterre est réputée pour son mélange unique de tradition et de modernité. Des majestueux châteaux médiévaux aux villes animées comme Londres, découvrez l'histoire riche et la culture dynamique du Royaume-Uni.",
     isFavorite: false,
+    city: "Londres",
   },
   {
     ID: 4,
-    Name: "L'Argentine",
+    Name: "l'Argentine",
     Src: "https://photos.tui.fr/vnf/Produits/ARGCT015-circuits-argentine-chili-tui.jpg",
     Label: "Amérique Latine",
     Text: "Plongez dans l'aventure en Argentine, un pays offrant des paysages à couper le souffle.",
@@ -51,14 +55,81 @@ const destinations = [
       "Dans ce pays où le désert rencontre la mer et les montagnes majestueuses, imprégnez-vous de l'atmosphère envoûtante des souks animés, des palais somptueux et des ruelles étroites des médinas historiques.",
     isFavorite: false,
   },
+  {
+    ID: 6,
+    Name: "La Chine",
+    Src: "https://visasnews.com/wp-content/uploads/2024/03/exemption-visa-chine-tourisme-voyage.webp",
+    Label: "Asie",
+    Text: "Découvrez la majesté de la Chine avec Globe Guide.",
+    TextDesktop:
+      "Explorez les merveilles anciennes de la Grande Muraille et plongez-vous dans la beauté impériale de la Cité Interdite. Goûtez à la délicieuse cuisine locale et vivez l'effervescence des marchés animés. Laissez-vous envoûter par la richesse culturelle et les paysages époustouflants de ce pays fascinant",
+    isFavorite: false,
+  },
+  {
+    ID: 7,
+    Name: "la Grèce",
+    Src: "https://media.istockphoto.com/id/1145450965/fr/photo/%C3%AEle-de-santorin-gr%C3%A8ce.jpg?s=612x612&w=0&k=20&c=oZIiXqJqZGsYYZA5-fZ_uc_bmk8r0UlaQKDiABuxMsk=",
+    Label: "Europe",
+    Text: "Explorez la beauté intemporelle de la Grèce et ses vestiges antiques fascinants.",
+    TextDesktop:
+      "Admirez l'Acropole majestueuse à Athènes, puis naviguez vers les îles grecques pour découvrir des plages paradisiaques et des villages pittoresques. Imprégnez-vous de l'ambiance authentique et dégustez la délicieuse cuisine méditerranéenne.",
+    isFavorite: false,
+  },
+  {
+    ID: 8,
+    Name: "le Pérou",
+    Src: "https://media.istockphoto.com/id/930824730/fr/photo/machu-picchu-au-p%C3%A9rou.jpg?s=612x612&w=0&k=20&c=M8pijHeeSTE_Ni2qPPt_KMJcaXfec1kXmCpCZCKl06I=",
+    Label: "Amérique Latine",
+    Text: "Plongez dans l'incroyable richesse culturelle du Pérou lors d'un voyage inoubliable.",
+    TextDesktop:
+      "Explorez les mystérieuses ruines de Machu Picchu, témoin de la grandeur de l'Empire inca. Traversez les paysages des Andes et goûtez aux saveurs de la cuisine péruvienne. Imprégnez-vous de l'histoire fascinante de ce pays enchanteur.",
+    isFavorite: false,
+  },
+  {
+    ID: 9,
+    Name: "les Etats-Unis",
+    Src: "https://www.state.gov/wp-content/uploads/2022/01/shutterstock_248799484-scaled.jpg",
+    Label: "Amérique du Nord",
+    Text: "Découvrez la diversité époustouflante des États-Unis",
+    TextDesktop:
+      "Des gratte-ciel imposants de New York aux plages ensoleillées de la Californie, parcourez les parcs nationaux majestueux comme le Grand Canyon et ressentez l'effervescence culturelle à travers les quartiers emblématiques de villes comme Los Angeles et Chicago.",
+    isFavorite: false,
+  },
+  {
+    ID: 10,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+  },
 ];
 
 function RecommandedList() {
+  const elementsPerPage = 8;
+
+  const [page, setPage] = useState(1);
+
+  const limitDestinations = (currentPage) => {
+    const startIndex = (currentPage - 1) * elementsPerPage;
+    const endIndex = startIndex + elementsPerPage;
+
+    const currentPageDestinations = destinations.slice(startIndex, endIndex);
+
+    return currentPageDestinations;
+  };
+
+  const handlePaginationClick = (value) => {
+    setPage(page + value);
+  };
+
   return (
     <div className="recommanded__section">
       <h3> Recommandé pour vous </h3>
       <div className="recommanded__caroussel">
-        {destinations.map((destination) => (
+        {limitDestinations(page).map((destination) => (
           <RecommandedCard
             key={destination.id}
             name={destination.Name}
@@ -69,6 +140,12 @@ function RecommandedList() {
           />
         ))}
       </div>
+      <button type="button" onClick={() => handlePaginationClick(-1)}>
+        Previous
+      </button>
+      <button type="button" onClick={() => handlePaginationClick(1)}>
+        Next
+      </button>
     </div>
   );
 }
