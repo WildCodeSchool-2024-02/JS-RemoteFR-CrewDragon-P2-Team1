@@ -1,7 +1,7 @@
 import "./CardModal.css";
 import PropTypes from "prop-types";
 
-function CardModal({ destination }) {
+function CardModal({ countryList }) {
   return (
     <div className="modal-container">
       <div className="modal">
@@ -17,14 +17,14 @@ function CardModal({ destination }) {
         <div className="modal-content">
           <div className="modal-content-header">
             <div className="modal-content-header-heart">
-              <h1 className="countryH1">Visitez le {destination.name} !</h1>
+              <h1 className="countryH1">Visitez le {countryList.name} !</h1>
               <img
                 src="src/assets/images/heart-svgrepo-com.svg"
                 alt="blue heart"
                 className="heart"
               />
             </div>
-            <p>{destination.textDesktop}</p>
+            <p>{countryList.textDesktop}</p>
           </div>
           <div className="modal-content-weather">
             <h2>La météo</h2>
@@ -93,7 +93,7 @@ function CardModal({ destination }) {
 }
 
 CardModal.propTypes = {
-  destination: PropTypes.shape({
+  countryList: PropTypes.shape({
     key: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
