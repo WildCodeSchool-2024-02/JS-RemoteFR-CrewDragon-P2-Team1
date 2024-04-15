@@ -1,5 +1,9 @@
+import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
-import RecommandedCard from "./RecommandedCard";
+import RecommandedCardDesktop from "./RecommandedCardDesktop";
+import RecommandedCardMobile from "./RecommandedCardMobile";
+import Pagination from "./Pagination";
+import "../styles/RecommandedSection.scss";
 
 const destinations = [
   {
@@ -11,7 +15,7 @@ const destinations = [
     TextDesktop:
       "De ses plages tropicales aux sites archéologiques, chaque coin du Mexique offre une expérience unique. Profitez de la cuisine savoureuse, des villes coloniales pittoresques et des festivités colorées.",
     isFavorite: true,
-    city: "Mexico",
+    City: "Mexico",
   },
   {
     ID: 2,
@@ -22,7 +26,7 @@ const destinations = [
     TextDesktop:
       "Au Vietnam les rizières en terrasses verdoyantes et les baies karstiques spectaculaires comme celles d'Ha Long vous attendent. Plongez dans l'histoire captivante et la culture vibrante du Vietnam.",
     isFavorite: false,
-    city: "Hanoi",
+    City: "Hanoi",
   },
   {
     ID: 3,
@@ -33,7 +37,7 @@ const destinations = [
     TextDesktop:
       "L'Angleterre est réputée pour son mélange unique de tradition et de modernité. Des majestueux châteaux médiévaux aux villes animées comme Londres, découvrez l'histoire riche et la culture dynamique du Royaume-Uni.",
     isFavorite: false,
-    city: "Londres",
+    City: "Londres",
   },
   {
     ID: 4,
@@ -44,6 +48,7 @@ const destinations = [
     TextDesktop:
       "Explorez des villes passionnantes comme Buenos Aires, vibrez au rythme du tango et découvrez une culture riche en traditions et en passion pour le football. ",
     isFavorite: false,
+    City: "Buenos Aires",
   },
   {
     ID: 5,
@@ -54,6 +59,7 @@ const destinations = [
     TextDesktop:
       "Dans ce pays où le désert rencontre la mer et les montagnes majestueuses, imprégnez-vous de l'atmosphère envoûtante des souks animés, des palais somptueux et des ruelles étroites des médinas historiques.",
     isFavorite: false,
+    City: "Marrakesh",
   },
   {
     ID: 6,
@@ -64,6 +70,7 @@ const destinations = [
     TextDesktop:
       "Explorez les merveilles anciennes de la Grande Muraille et plongez-vous dans la beauté impériale de la Cité Interdite. Goûtez à la délicieuse cuisine locale et vivez l'effervescence des marchés animés. Laissez-vous envoûter par la richesse culturelle et les paysages époustouflants de ce pays fascinant",
     isFavorite: false,
+    City: "Pékin",
   },
   {
     ID: 7,
@@ -74,6 +81,7 @@ const destinations = [
     TextDesktop:
       "Admirez l'Acropole majestueuse à Athènes, puis naviguez vers les îles grecques pour découvrir des plages paradisiaques et des villages pittoresques. Imprégnez-vous de l'ambiance authentique et dégustez la délicieuse cuisine méditerranéenne.",
     isFavorite: false,
+    City: "Athènes",
   },
   {
     ID: 8,
@@ -84,6 +92,7 @@ const destinations = [
     TextDesktop:
       "Explorez les mystérieuses ruines de Machu Picchu, témoin de la grandeur de l'Empire inca. Traversez les paysages des Andes et goûtez aux saveurs de la cuisine péruvienne. Imprégnez-vous de l'histoire fascinante de ce pays enchanteur.",
     isFavorite: false,
+    City: "Lima",
   },
   {
     ID: 9,
@@ -94,6 +103,7 @@ const destinations = [
     TextDesktop:
       "Des gratte-ciel imposants de New York aux plages ensoleillées de la Californie, parcourez les parcs nationaux majestueux comme le Grand Canyon et ressentez l'effervescence culturelle à travers les quartiers emblématiques de villes comme Los Angeles et Chicago.",
     isFavorite: false,
+    City: "Washington",
   },
   {
     ID: 10,
@@ -104,48 +114,163 @@ const destinations = [
     TextDesktop:
       "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
     isFavorite: false,
+    City: "Le Cap",
+  },
+  {
+    ID: 11,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+    City: "Le Cap",
+  },
+  {
+    ID: 12,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+    City: "Le Cap",
+  },
+  {
+    ID: 13,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+    City: "Le Cap",
+  },
+  {
+    ID: 14,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+    City: "Le Cap",
+  },
+  {
+    ID: 15,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+    City: "Le Cap",
+  },
+  {
+    ID: 16,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+    City: "Le Cap",
+  },
+  {
+    ID: 17,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+    City: "Le Cap",
+  },
+  {
+    ID: 18,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+    City: "Le Cap",
+  },
+  {
+    ID: 19,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+    City: "Le Cap",
+  },
+  {
+    ID: 20,
+    Name: "l'Afrique du Sud",
+    Src: "https://media.istockphoto.com/id/620737858/fr/photo/le-cap-et-les-12-apostels-den-haut.jpg?s=612x612&w=0&k=20&c=Hb429bbMHcfjmLHbVEQngXRsMwYtIeyUIg97ei15twc=",
+    Label: "Afrique",
+    Text: "Partez à la découverte de l'Afrique du Sud, une terre de contrastes et de merveilles naturelles.",
+    TextDesktop:
+      "Explorez la faune incroyable lors d'un safari inoubliable dans le parc Kruger. Imprégnez-vous de l'histoire bouleversante de l'apartheid à Johannesburg et admirez les paysages époustouflants de la route des Jardins.",
+    isFavorite: false,
+    City: "Le Cap",
   },
 ];
 
 function RecommandedList() {
-  const elementsPerPage = 8;
-
   const [page, setPage] = useState(1);
+  const recordsPerPage = 8;
 
-  const limitDestinations = (currentPage) => {
-    const startIndex = (currentPage - 1) * elementsPerPage;
-    const endIndex = startIndex + elementsPerPage;
+  const endIndex = page * recordsPerPage;
+  const startIndex = endIndex - recordsPerPage;
 
-    const currentPageDestinations = destinations.slice(startIndex, endIndex);
+  const pageDestinations = destinations.slice(startIndex, endIndex);
 
-    return currentPageDestinations;
-  };
+  const nPages = Math.ceil(destinations.length / recordsPerPage);
 
-  const handlePaginationClick = (value) => {
-    setPage(page + value);
-  };
+  const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 700px)" });
 
   return (
-    <div className="recommanded__section">
-      <h3> Recommandé pour vous </h3>
-      <div className="recommanded__caroussel">
-        {limitDestinations(page).map((destination) => (
-          <RecommandedCard
-            key={destination.id}
-            name={destination.Name}
-            src={destination.Src}
-            label={destination.Label}
-            text={destination.Text}
-            textdesktop={destination.TextDesktop}
-          />
+    <div className="recommended__section">
+      <h3>Recommandé pour vous</h3>
+      <div className="recommended__carousel">
+        {pageDestinations.map((destination) => (
+          <div key={destination.ID}>
+            {isDesktopOrLaptop ? (
+              <div>
+                <RecommandedCardDesktop
+                  name={destination.Name}
+                  src={destination.Src}
+                  label={destination.Label}
+                  text={destination.Text}
+                  textDesktop={destination.TextDesktop}
+                  isFavorite={destination.isFavorite}
+                />
+              </div>
+            ) : (
+              <RecommandedCardMobile
+                name={destination.Name}
+                src={destination.Src}
+                label={destination.Label}
+                text={destination.Text}
+                isFavorite={destination.isFavorite}
+              />
+            )}
+          </div>
         ))}
       </div>
-      <button type="button" onClick={() => handlePaginationClick(-1)}>
-        Previous
-      </button>
-      <button type="button" onClick={() => handlePaginationClick(1)}>
-        Next
-      </button>
+      <Pagination nPages={nPages} page={page} setPage={setPage} />
     </div>
   );
 }
