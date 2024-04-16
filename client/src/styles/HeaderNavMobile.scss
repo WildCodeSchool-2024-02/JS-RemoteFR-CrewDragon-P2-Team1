@@ -8,6 +8,8 @@ $color-4: #a0a603;
 * {
   margin: 0;
 }
+
+//MobileNav
 .HearderContainer {
   background: linear-gradient($primary-color, $second-color, $terciary-color);
   padding-bottom: 7rem;
@@ -42,7 +44,7 @@ $color-4: #a0a603;
   font-family: $primary-font;
   font-weight: 100;
   font-size: 0.8rem;
-  background-image: url("./assets/images/chercher.png");
+  background-image: url("../assets/images/chercher.png");
   background-repeat: no-repeat;
   background-size: 10px;
   background-position: 5px 5px;

@@ -1,3 +1,4 @@
+import "../styles/HeaderNavMobile.scss";
 import { useClickAway } from "@uidotdev/usehooks";
 import { useRef, useState } from "react";
 import { Squash as Hamburger } from "hamburger-react";
