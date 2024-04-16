@@ -1,6 +1,5 @@
 import "./App.css";
-import PopularCard from "./components/PopularCard";
-import RecommendedCard from "./components/RecommendedCard";
+import { useState } from "react";
 import CardModal from "./components/CardModal";
 
 const countryList = [
@@ -25,11 +24,16 @@ const countryList = [
 ];
 
 function App() {
+  const [cardModalOpen, setCardModalOpen] = useState(false);
   return (
     <>
-      <PopularCard />
-      <RecommendedCard />
-      <CardModal countryList={countryList[0]} />
+      <button type="button" onClick={() => setCardModalOpen(true)}>
+        Popular
+      </button>
+      <button type="button" onClick={() => setCardModalOpen(true)}>
+        Recommended
+      </button>
+      {cardModalOpen && <CardModal countryList={countryList[0]} />}
     </>
   );
 }
