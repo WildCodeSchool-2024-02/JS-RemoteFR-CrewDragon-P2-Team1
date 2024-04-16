@@ -25,15 +25,14 @@ h3 {
 }
 
 /*Le carroussel*/
-.recommanded__section {
+.recommended__section {
   margin: 2rem;
-}
-
-.recommanded__caroussel {
-  display: flex;
-  gap: 1.5rem;
-  scroll-behavior: smooth;
-  overflow-y: auto;
+  .recommended__carousel {
+    display: flex;
+    gap: 1.5rem;
+    scroll-behavior: smooth;
+    overflow-y: auto;
+  }
 }
 
 /*La carte destinations recommandées*/
@@ -43,14 +42,14 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1200px;
-  margin-block: 2rem;
-  gap: 2rem;
+  margin: 0.8rem 0;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   width: clamp(11rem, calc(20rem + 2vw), 14rem);
+  height: clamp(23rem, calc(25rem + 2vh), 27rem);
   overflow: hidden;
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
   border-radius: 1rem;
@@ -89,18 +88,10 @@ h4 {
   font-size: 0.8rem;
 }
 
-.recommanded__text__desktop {
-  display: none;
-}
-
 .button__section {
   display: flex;
   height: 2rem;
   justify-content: right;
-}
-
-.button__desktop {
-  display: none;
 }
 
 .button__like {
@@ -113,22 +104,26 @@ h4 {
   height: 1.7rem;
 }
 
+.pagination__nav {
+  display: none;
+}
+
 /*LA RESPONSIVE*/
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 700px) {
   h3 {
     font-family: $primary-font;
-    font-size: 2.7rem;
+    font-size: 3rem;
   }
 
-  .recommanded__section {
+  .recommended__section {
     margin: 1rem 7rem;
   }
 
-  .recommanded__caroussel {
+  .recommended__carousel {
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .recommanded__text {
@@ -142,7 +137,7 @@ h4 {
 
   .card {
     width: clamp(24rem, calc(20rem + 2vw), 26rem);
-    height: clamp(36rem, calc(38rem + 2vw), 40em);
+    height: clamp(34rem, calc(36rem + 2vw), 38rem);
   }
 
   img {
@@ -154,7 +149,7 @@ h4 {
   }
 
   h4 {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
   }
 
   .tag {
@@ -178,4 +173,44 @@ h4 {
     font-size: 1rem;
     font-family: $primary-font;
   }
+
+  /*La pagination*/
+
+  .pagination__nav {
+    display: block;
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      li {
+        list-style: none;
+        button {
+          background-color: transparent;
+          border: transparent;
+          font-size: 1rem;
+          font-family: $primary-font;
+          cursor: pointer;
+        }
+        .button__svg__nav {
+          background: linear-gradient(
+            to right,
+            $primary-color,
+            $terciary-color
+          );
+          padding: 0.2rem;
+          width: 1.7rem;
+          height: 1.7rem;
+          cursor: pointer;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  color: #025959;
+  font-weight: bolder;
 }

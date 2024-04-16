@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-function RecommandedCard({ name, src, label, text, isFavorite, textdesktop }) {
+function RecommandedCardMobile({ name, src, label, text, isFavorite }) {
   const [toggle, setToggle] = useState(isFavorite);
 
   const toggleFunction = () => {
@@ -17,29 +17,9 @@ function RecommandedCard({ name, src, label, text, isFavorite, textdesktop }) {
         <div className="card__body">
           <span className="tag">{label}</span>
           <h4>Visitez {name} !</h4>
-          <p className="recommanded__text">{text}</p>
-          <p className="recommanded__text__desktop"> {textdesktop}</p>
+          <p className="recommended__text">{text}</p>
 
           <div className="button__section">
-            <div className="button__desktop">
-              <button className="button__showmore" type="button">
-                En savoir plus
-              </button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="button-svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </div>
             <button
               onClick={toggleFunction}
               type="button"
@@ -66,13 +46,12 @@ function RecommandedCard({ name, src, label, text, isFavorite, textdesktop }) {
   );
 }
 
-RecommandedCard.propTypes = {
+RecommandedCardMobile.propTypes = {
   name: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   isFavorite: PropTypes.bool.isRequired,
-  textdesktop: PropTypes.string.isRequired,
 };
 
-export default RecommandedCard;
+export default RecommandedCardMobile;
