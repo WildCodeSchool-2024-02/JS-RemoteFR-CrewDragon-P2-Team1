@@ -1,8 +1,7 @@
 import HeaderNavMobile from "./components/HeaderNavMobile";
 import RecommandedList from "./components/RecommandedList";
 import Footer from "./components/Footer";
-import "./SectionPopular.scss";
-import SectionPopular from "./components/SectionPopular";
+import PopularList from "./components/PopularList";
 import destination from "./data/cards";
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
     <div>
       <HeaderNavMobile />
       <RecommandedList />
-      <SectionPopular destination={destination} />
+      <PopularList destination={destination} />
       <Footer />
     </div>
   );

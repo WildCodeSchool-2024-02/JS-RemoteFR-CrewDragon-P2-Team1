@@ -23,14 +23,14 @@ function RecommandedCardDesktop({
         </div>
         <div className="card__body">
           <span className="tag">{label}</span>
-          <h4>Visitez {name} !</h4>
+          <h4>Visit {name} !</h4>
           <p className="recommended__text">{text}</p>
           <p className="recommended__text__desktop"> {textDesktop}</p>
 
           <div className="button__section">
             <div className="button__desktop">
               <button className="button__showmore" type="button">
-                En savoir plus
+                Know more
               </button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

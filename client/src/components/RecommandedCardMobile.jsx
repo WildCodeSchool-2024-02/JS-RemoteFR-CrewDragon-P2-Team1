@@ -16,7 +16,7 @@ function RecommandedCardMobile({ name, src, label, text, isFavorite }) {
         </div>
         <div className="card__body">
           <span className="tag">{label}</span>
-          <h4>Visitez {name} !</h4>
+          <h4>Visit {name} !</h4>
           <p className="recommended__text">{text}</p>
 
           <div className="button__section">
