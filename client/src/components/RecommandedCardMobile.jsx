@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import CardModal from "./CardModal";
@@ -17,32 +17,34 @@ function RecommandedCardMobile({ name, src, label, text, isFavorite }) {
 
   const toggleModal = () => {
     setCardModalOpen(!cardModalOpen);
-    document.body.style.overflow = "hidden";
   };
 
-  const handleClick = (country) => {
-    console.info("c'est nous, c'est derrick je suis a ", country);
+  const handleClick = () => {
     setSelectedCountry({ name, src, label, text });
     toggleModal();
   };
 
+  useEffect(() => {
+    document.body.style.overflow = cardModalOpen ? "hidden" : "initial";
+  }, [cardModalOpen]);
+
   return (
-    <div className="container">
+    <div
+      className="container"
+      onClick={() => handleClick(name)}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === "Space") {
+          handleClick(name);
+        }
+      }}
+      role="button"
+      tabIndex={0}
+    >
       <div className="card">
         <div className="card__header">
           <img src={src} alt={name} className="card__image" />
         </div>
-        <div
-          className="card__body"
-          onClick={() => handleClick(name)}
-          onKeyDown={(event) => {
-            if (event.key === "Enter" || event.key === "Space") {
-              handleClick(name);
-            }
-          }}
-          role="button"
-          tabIndex={0}
-        >
+        <div className="card__body">
           <span className="tag">{label}</span>
           <h4>Visit {name} !</h4>
           <p className="recommended__text">{text}</p>
