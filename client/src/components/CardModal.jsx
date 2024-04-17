@@ -1,14 +1,24 @@
 import "../styles/CardModal.scss";
 import PropTypes from "prop-types";
 
-function CardModal({ name, src, text, onClose }) {
+function CardModal({ destination, onClose }) {
   window.scrollTo(0, 0);
 
   return (
-    <div className="modal-container">
+    <div
+      className="modal-container"
+      onClick={onClose}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === "Space") {
+          onClose();
+        }
+      }}
+      role="button"
+      tabIndex={0}
+    >
       <div className="modal">
         <div className="modal-header">
-          <img src={src} alt="" className="modal-image" />
+          <img src={destination.Src} alt="" className="modal-image" />
           <svg
             onClick={onClose}
             xmlns="http://www.w3.org/2000/svg"
@@ -28,9 +38,9 @@ function CardModal({ name, src, text, onClose }) {
         <div className="modal-content">
           <div className="modal-content-header">
             <div className="modal-content-header-heart">
-              <h1 className="countryH1">Visit {name}!</h1>
+              <h1 className="countryH1">Visit {destination.Name}!</h1>
             </div>
-            <p>{text}</p>
+            <p>{destination.Text}</p>
             <p>text</p>
           </div>
           <div className="modal-content-weather">
@@ -101,10 +111,12 @@ function CardModal({ name, src, text, onClose }) {
 }
 
 CardModal.propTypes = {
-  name: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
+  destination: PropTypes.arrayOf.isRequired,
+  selectionManager: PropTypes.shape({
+    selectedCountry: PropTypes.string,
+    manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default CardModal;

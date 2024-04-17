@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import PopularCard from "./PopularCard";
-import CardModal from "./CardModal";
 import "../styles/SectionPopular.scss";
 
-function PopularList({ destinations }) {
+function PopularList({ destinations, selectionManager }) {
   const [page, setPage] = useState(1);
   const recordsPerPage = 3;
 
@@ -23,33 +22,8 @@ function PopularList({ destinations }) {
     if (page !== nPages) setPage(page + 1);
   };
 
-  const [selectedCountry, setSelectedCountry] = useState({});
-
-  const [cardModalOpen, setCardModalOpen] = useState(false);
-
-  const toggleModal = () => {
-    setCardModalOpen(!cardModalOpen);
-  };
-
-  useEffect(() => {
-    document.body.style.overflow = cardModalOpen ? "hidden" : "initial";
-  }, [cardModalOpen]);
-
-  useEffect(() => {
-    setCardModalOpen(true);
-    console.info(selectedCountry);
-  }, [selectedCountry]);
-
   return (
     <div>
-      {cardModalOpen && (
-        <CardModal
-          name={selectedCountry.name}
-          src={selectedCountry.src}
-          text={selectedCountry.text}
-          onClose={toggleModal}
-        />
-      )}
       <div className="popular__section">
         <h3> Popular destinations </h3>
 
@@ -77,7 +51,8 @@ function PopularList({ destinations }) {
               city={destination.Capital}
               text={destination.Text}
               Isfavorite={destination.Isfavorite}
-              setSelectedCountry={setSelectedCountry}
+              selectionManager={selectionManager}
+              destination={destination}
             />
           ))}
           <svg
@@ -103,6 +78,10 @@ function PopularList({ destinations }) {
 
 PopularList.propTypes = {
   destinations: PropTypes.arrayOf.isRequired,
+  selectionManager: PropTypes.shape({
+    selectedCountry: PropTypes.string,
+    manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default PopularList;

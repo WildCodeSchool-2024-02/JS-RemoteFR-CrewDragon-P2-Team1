@@ -7,7 +7,7 @@ import RecommandedCardMobile from "./RecommandedCardMobile";
 import Pagination from "./Pagination";
 import "../styles/RecommandedSection.scss";
 
-function RecommandedList({ destinations }) {
+function RecommandedList({ destinations, selectionManager }) {
   const [page, setPage] = useState(1);
   const recordsPerPage = 8;
 
@@ -45,6 +45,8 @@ function RecommandedList({ destinations }) {
                 text={destination.Text}
                 isFavorite={destination.isFavorite}
                 textDesktop={destination.TextDesktop}
+                selectionManager={selectionManager}
+                destination={destination}
               />
             )}
           </div>
@@ -57,5 +59,9 @@ function RecommandedList({ destinations }) {
 
 RecommandedList.propTypes = {
   destinations: PropTypes.arrayOf.isRequired,
+  selectionManager: PropTypes.shape({
+    selectedCountry: PropTypes.string,
+    manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
 };
 export default RecommandedList;

@@ -2,15 +2,15 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 function PopularCard({
-  setSelectedCountry,
   src,
   name,
   Isfavorite,
   city,
-  text,
+  selectionManager,
+  destination,
 }) {
   const handleClick = () => {
-    setSelectedCountry({ name, src, text });
+    selectionManager.manageCountrySelection(destination);
   };
 
   const [toggle, setToggle] = useState(Isfavorite);
@@ -86,8 +86,11 @@ PopularCard.propTypes = {
   name: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   Isfavorite: PropTypes.bool.isRequired,
-  setSelectedCountry: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
+  destination: PropTypes.arrayOf.isRequired,
+  selectionManager: PropTypes.shape({
+    selectedCountry: PropTypes.string,
+    manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default PopularCard;

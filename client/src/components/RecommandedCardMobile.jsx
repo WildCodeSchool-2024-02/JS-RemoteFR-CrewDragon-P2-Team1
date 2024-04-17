@@ -1,32 +1,25 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
-
-import CardModal from "./CardModal";
-
 import "../styles/CardModal.scss";
 
-function RecommandedCardMobile({ name, src, label, text, isFavorite }) {
-  const [selectedCountry, setSelectedCountry] = useState({});
+function RecommandedCardMobile({
+  name,
+  src,
+  label,
+  text,
+  isFavorite,
+  selectionManager,
+  destination,
+}) {
   const [toggle, setToggle] = useState(isFavorite);
 
   const toggleFunction = () => {
     setToggle(!toggle);
   };
 
-  const [cardModalOpen, setCardModalOpen] = useState(false);
-
-  const toggleModal = () => {
-    setCardModalOpen(!cardModalOpen);
-  };
-
   const handleClick = () => {
-    setSelectedCountry({ name, src, label, text });
-    toggleModal();
+    selectionManager.manageCountrySelection(destination);
   };
-
-  useEffect(() => {
-    document.body.style.overflow = cardModalOpen ? "hidden" : "initial";
-  }, [cardModalOpen]);
 
   return (
     <div
@@ -72,15 +65,6 @@ function RecommandedCardMobile({ name, src, label, text, isFavorite }) {
           </div>
         </div>
       </div>
-      {cardModalOpen && (
-        <CardModal
-          name={selectedCountry.name}
-          src={selectedCountry.src}
-          text={selectedCountry.text}
-          isFavorite={toggle}
-          onClose={toggleModal}
-        />
-      )}
     </div>
   );
 }
@@ -91,6 +75,11 @@ RecommandedCardMobile.propTypes = {
   label: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   isFavorite: PropTypes.bool.isRequired,
+  destination: PropTypes.arrayOf.isRequired,
+  selectionManager: PropTypes.shape({
+    selectedCountry: PropTypes.string,
+    manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default RecommandedCardMobile;

@@ -1,10 +1,12 @@
 import { useMediaQuery } from "react-responsive";
 
+import CountrySelectionManager from "./components/CountrySelectionManager";
 import HeaderNavMobile from "./components/HeaderNavMobile";
 import HeaderNavDesktop from "./components/HeaderNavDesktop";
 import RecommandedList from "./components/RecommandedList";
 import Footer from "./components/Footer";
 import PopularList from "./components/PopularList";
+import ModalManager from "./components/ModalManager";
 
 const destinations = [
   {
@@ -508,13 +510,21 @@ function App() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 699px)" });
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 700px)" });
 
+  const selectionManager = new CountrySelectionManager();
+
   return (
     <div className="root">
       {isTabletOrMobile && <HeaderNavMobile />}
       {isDesktopOrLaptop && <HeaderNavDesktop />}
-
-      <RecommandedList destinations={destinations} />
-      <PopularList destinations={destinations} />
+      <ModalManager selectionManager={selectionManager} />
+      <RecommandedList
+        destinations={destinations}
+        selectionManager={selectionManager}
+      />
+      <PopularList
+        destinations={destinations}
+        selectionManager={selectionManager}
+      />
       <Footer />
     </div>
   );
