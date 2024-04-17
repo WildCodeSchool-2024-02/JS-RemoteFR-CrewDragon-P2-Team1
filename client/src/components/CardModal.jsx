@@ -2,6 +2,8 @@ import "../styles/CardModal.scss";
 import PropTypes from "prop-types";
 
 function CardModal({ name, src, text, onClose }) {
+  window.scrollTo(0, 0);
+
   return (
     <div className="modal-container">
       <div className="modal">

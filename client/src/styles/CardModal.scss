@@ -18,9 +18,9 @@
 .modal-container {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
+  transform: translate(0px, -80vh);
   left: 0;
-  top: -200px;
   margin: 0;
 }
 

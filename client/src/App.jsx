@@ -512,8 +512,9 @@ function App() {
     <div className="root">
       {isTabletOrMobile && <HeaderNavMobile />}
       {isDesktopOrLaptop && <HeaderNavDesktop />}
+
       <RecommandedList destinations={destinations} />
-      <PopularList />
+      <PopularList destinations={destinations} />
       <Footer />
     </div>
   );
