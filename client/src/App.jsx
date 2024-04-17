@@ -1,6 +1,16 @@
-import "./App.css";
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
+
+import HeaderNavMobile from "./components/HeaderNavMobile";
+import HeaderNavDesktop from "./components/HeaderNavDesktop";
+import RecommandedList from "./components/RecommandedList";
+import Footer from "./components/Footer";
+import SectionPopular from "./components/SectionPopular";
 import CardModal from "./components/CardModal";
+
+import destination from "./data/cards";
+
+import "./SectionPopular.scss";
 
 const countryList = [
   {
@@ -24,9 +34,16 @@ const countryList = [
 ];
 
 function App() {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 699px)" });
+  const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 700px)" });
   const [cardModalOpen, setCardModalOpen] = useState(false);
+
   return (
-    <>
+    <div>
+      {isTabletOrMobile && <HeaderNavMobile />}
+      {isDesktopOrLaptop && <HeaderNavDesktop />}
+      <RecommandedList />
+      <SectionPopular destination={destination} />
       <button type="button" onClick={() => setCardModalOpen(true)}>
         Popular
       </button>
@@ -34,7 +51,8 @@ function App() {
         Recommended
       </button>
       {cardModalOpen && <CardModal countryList={countryList[0]} />}
-    </>
+      <Footer />
+    </div>
   );
 }
 
