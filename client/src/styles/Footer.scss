@@ -6,24 +6,19 @@
   padding: 20px;
   text-align: center;
   position: absolute;
-}
-
-.footer-content {
-  font-family: "Quicksand", sans-serif;
-  height: 100%;
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.footer-content p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-.logo {
-  display: none;
+  .footer-content {
+    font-family: "Quicksand", sans-serif;
+    height: 100%;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .footer-content p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .logo {

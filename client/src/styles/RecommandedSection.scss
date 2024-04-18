@@ -14,29 +14,20 @@ $secondary-font: "Quicksand", sans-serif;
   margin: 0;
 }
 
-.root {
-  height: auto;
-}
-
 body {
   font-family: "Quicksand", sans-serif;
 }
 
-h3 {
-  font-family: $primary-font;
-  font-size: 1.5rem;
-  color: white;
-}
-
-.white {
-  color: white;
-}
-
-/*Le carroussel*/
+/*Le carroussel - Section recommandées*/
 .recommended__section {
   position: relative;
   top: -100px;
   padding: 2rem;
+  h3 {
+    font-family: $primary-font;
+    font-size: 1.5rem;
+    color: white;
+  }
   .recommended__carousel {
     display: flex;
     gap: 1.5rem;
@@ -47,7 +38,7 @@ h3 {
   }
 }
 
-/*La carte destinations recommandées*/
+/*Carte destinations recommandées*/
 
 .container {
   display: flex;
@@ -55,65 +46,60 @@ h3 {
   justify-content: center;
   max-width: 1200px;
   margin: 0.8rem 0;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  width: clamp(11rem, calc(20rem + 2vw), 14rem);
-  height: clamp(24rem, calc(26rem + 2vh), 28rem);
-  overflow: hidden;
-  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
-  border-radius: 1rem;
-  background: white;
-}
-
-img {
-  max-width: 100%;
-  height: 14rem;
-  display: block;
-  object-fit: cover;
-}
-
-.card__body {
-  padding: 1rem 1rem 0.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.tag {
-  align-self: flex-start;
-  padding: 0.25em 0.75em;
-  border-radius: 1em;
-  font-size: 0.75rem;
-  background: #56ccf2;
-  background: linear-gradient(to right, $second-color, $color-4);
-  color: #fafafa;
-}
-
-h4 {
-  font-size: 1rem;
-}
-
-.recommanded__text {
-  font-size: 0.8rem;
-}
-
-.button__section {
-  display: flex;
-  height: 2rem;
-  justify-content: right;
-}
-
-.button__like {
-  background-color: transparent;
-  border: transparent;
-  cursor: pointer;
-}
-
-.like {
-  height: 1.7rem;
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: clamp(11rem, calc(20rem + 2vw), 14rem);
+    height: clamp(24rem, calc(26rem + 2vh), 28rem);
+    overflow: hidden;
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    background: white;
+    .card__header {
+      img {
+        max-width: 100%;
+        height: 14rem;
+        display: block;
+        object-fit: cover;
+      }
+    }
+    .card__body {
+      padding: 1rem 1rem 0.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .tag {
+        align-self: flex-start;
+        padding: 0.25em 0.75em;
+        border-radius: 1em;
+        font-size: 0.75rem;
+        background: #56ccf2;
+        background: linear-gradient(to right, $second-color, $color-4);
+        color: #fafafa;
+      }
+      h4 {
+        font-size: 1rem;
+      }
+      .recommanded__text {
+        font-size: 0.8rem;
+      }
+      .button__section {
+        display: flex;
+        height: 2rem;
+        justify-content: right;
+        position: relative;
+        bottom: rem;
+        .button__like {
+          background-color: transparent;
+          border: transparent;
+          cursor: pointer;
+          .like {
+            height: 1.8rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 .pagination__nav {

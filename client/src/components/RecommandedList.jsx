@@ -22,7 +22,7 @@ function RecommandedList({ destinations, selectionManager }) {
 
   return (
     <div className="recommended__section">
-      <h3 className="white">Recommended for you</h3>
+      <h3>Recommended for you</h3>
       <div className="recommended__carousel">
         {pageDestinations.map((destination) => (
           <div key={destination.ID}>
