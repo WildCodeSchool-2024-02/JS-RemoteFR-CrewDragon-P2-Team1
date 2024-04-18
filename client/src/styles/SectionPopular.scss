@@ -151,13 +151,60 @@ h3 {
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
   body {
-    background-color: yellow;
+    .popular__section {
+      top: 0;
+      margin-bottom: 0;
+      .popular_list {
+        display: flex;
+        gap: 1.5rem;
+        .PopularContainer {
+          justify-content: center;
+          .CardsContainer {
+            .PopularLeft {
+              width: 45%;
+            }
+            .desc {
+              h4 {
+                font-size: 1.1rem;
+              }
+              .PopularCity {
+                .PopularText {
+                  font-size: 0.9rem;
+                }
+                .map {
+                  height: 1.6rem;
+                }
+              }
+              .PopularLike {
+                .like {
+                  height: 1.6rem;
+                }
+                .PopularText {
+                  font-size: 0.9rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .button__svg__nav {
+      background: linear-gradient(to right, $primary-color, $terciary-color);
+      padding: 0.2rem;
+      width: 1.7rem;
+      height: 1.7rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
   }
 }
 
 /* Ordinateur*/
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
+  body {
+    background-color: #04adbf;
+  }
   h3 {
     font-family: $primary-font;
     font-size: 3rem;

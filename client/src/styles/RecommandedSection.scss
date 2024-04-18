@@ -122,8 +122,12 @@ body {
 /* La tablette*/
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  body {
-    background-color: yellow;
+  .recommended__section {
+    top: 0;
+    padding-top: 0;
+    h3 {
+      color: black;
+    }
   }
 }
 
