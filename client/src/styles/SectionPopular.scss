@@ -22,6 +22,7 @@ body {
 h3 {
   font-family: $primary-font;
   font-size: 1.5rem;
+  color: black;
 }
 
 h4 {
@@ -31,6 +32,9 @@ h4 {
 .popular__section {
   margin: 0rem 2rem 2rem;
   box-sizing: border-box;
+  position: relative;
+  top: -100px;
+  margin-bottom: -90px;
 }
 .PopularContainer {
   display: flex;

@@ -35,6 +35,8 @@ function RecommandedList({ destinations, selectionManager }) {
                   text={destination.Text}
                   textDesktop={destination.TextDesktop}
                   isFavorite={destination.isFavorite}
+                  selectionManager={selectionManager}
+                  destination={destination}
                 />
               </div>
             ) : (

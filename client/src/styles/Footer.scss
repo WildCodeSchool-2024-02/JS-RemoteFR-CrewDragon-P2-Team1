@@ -5,6 +5,7 @@
   color: #fff;
   padding: 20px;
   text-align: center;
+  position: absolute;
 }
 
 .footer-content {
@@ -16,23 +17,23 @@
   justify-content: center;
   align-items: center;
 }
-
-.footer-content :hover {
-  text-decoration: underline;
-}
 .footer-content p {
-  font-size: 20px;
+  font-size: 1rem;
   margin-bottom: 10px;
 }
 
 .logo {
-  width: 7rem;
-  position: absolute;
-  right: 40px;
+  display: none;
 }
 
-@media screen and (max-width: 576px) {
+.logo {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
   .logo {
-    display: none;
+    width: 7rem;
+    position: absolute;
+    right: 40px;
   }
 }
