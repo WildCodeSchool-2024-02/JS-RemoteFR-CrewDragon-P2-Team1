@@ -29,7 +29,7 @@ h4 {
 }
 
 .popular__section {
-  margin: 2rem;
+  margin: 0rem 2rem 2rem;
   box-sizing: border-box;
 }
 .PopularContainer {
@@ -102,6 +102,7 @@ h4 {
 
   .popular__section {
     margin: 1rem 7rem;
+    position: static;
   }
 
   .popular_list {

@@ -1,90 +1,108 @@
-import "./CardModal.css";
+import "../styles/CardModal.scss";
 import PropTypes from "prop-types";
 
-function CardModal({ countryList }) {
+function CardModal({ destination, onClose }) {
+  window.scrollTo(0, 0);
+
   return (
-    <div className="modal-container">
+    <div
+      className="modal-container"
+      onClick={onClose}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === "Space") {
+          onClose();
+        }
+      }}
+      role="button"
+      tabIndex={0}
+    >
       <div className="modal">
         <div className="modal-header">
-          <div className="arrow-container">
-            <img
-              src="../src/assets/images/left-arrow-svgrepo-com.svg"
-              alt="left arrow"
-              className="arrow"
+          <img src={destination.Src} alt="" className="modal-image" />
+          <svg
+            onClick={onClose}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="white"
+            className="arrow"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
             />
-          </div>
+          </svg>
         </div>
         <div className="modal-content">
           <div className="modal-content-header">
             <div className="modal-content-header-heart">
-              <h1 className="countryH1">Visitez le {countryList.name} !</h1>
-              <img
-                src="src/assets/images/heart-svgrepo-com.svg"
-                alt="blue heart"
-                className="heart"
-              />
+              <h1 className="countryH1">Visit {destination.Name}!</h1>
             </div>
-            <p>{countryList.textDesktop}</p>
+            <p>{destination.Text}</p>
+            <p>text</p>
           </div>
           <div className="modal-content-weather">
-            <h2>La météo</h2>
+            <h2>Weather</h2>
             <div className="weather-first-block">
-              <img src="src/assets/images/sun-svgrepo-com.svg" alt="sun logo" />
+              <img
+                src="src/assets/images/sun-svgrepo-com.svg"
+                alt="sun logo"
+                className="meteo-icon"
+              />
               <p className="weather-info">32°C</p>
-              <p className="weather-info">Temps clair</p>
+              <p className="weather-info">Clear sky</p>
             </div>
             <div className="weather-second-block">
               <img
                 src="src/assets/images/water-svgrepo-com.svg"
                 alt="water drops"
+                className="meteo-icon"
               />
               <div className="humidity-info">
                 <p>74%</p>
-                <p>Humidité</p>
+                <p>Humidity</p>
               </div>
               <img
                 src="src/assets/images/weather-wind-svgrepo-com.svg"
                 alt="wind logo"
+                className="meteo-icon"
               />
               <div className="wind-info">
                 <p>5.31km/h</p>
-                <p>Vitesse du vent</p>
+                <p>Wind speed</p>
               </div>
             </div>
           </div>
           <div className="modal-content-converter">
-            <h2>Le convertisseur de devises</h2>
+            <h2>Currency Converter</h2>
             <form>
-              Depuis: <br />
-              <input type="text" />
+              <label htmlFor="fromCurrency">From:</label>
+              <input type="text" id="fromCurrency" />
               <br />
+              <label htmlFor="toCurrency">To:</label>
+              <input type="text" id="toCurrency" />
               <br />
-              Vers: <br />
-              <input type="text" />
+              <label htmlFor="amount">Amount:</label>
+              <input type="text" id="amount" />
               <br />
-              <br />
-              Montant: <br />
-              <input type="text" />
+              <button className="button-convert" type="button">
+                Convert
+              </button>
+              <p className="amount-result">Amount (EUR): €</p>
             </form>
-            <br />
-            <button className="button-convert" type="button">
-              Convertir
-            </button>
-            <p className="amount-result">Montant (EUR): €</p>
           </div>
           <div className="modal-content-holidays">
-            <h2>Les fêtes nationales</h2>
-            <p>1er janvier : Jour de l'an</p>
-            <p>4 février : Jour de la constitution mexicaine</p>
-            <p>
-              18 mars : naissance de Benito Juarez, héros démocrate de la
-              république mexicaine
-            </p>
-            <p>Vendredi Saint, samedi, Dimanche de Pâques</p>
-            <p>1er mai : fête du Travail</p>
-            <p>16 septembre : fête de l'indépendance du Mexique</p>
-            <p>18 novembre : fête de la Révolution mexicaine</p>
-            <p>25 décembre : Noël</p>
+            <h2>National Holidays</h2>
+            <p>January 1: New Year's Day</p>
+            <p>February 4: Mexican Constitution Day</p>
+            <p>March 18: Birth of Benito Juarez, Mexican Republic hero</p>
+            <p>Good Friday, Saturday, Easter Sunday</p>
+            <p>May 1: Labor Day</p>
+            <p>September 16: Mexican Independence Day</p>
+            <p>November 18: Mexican Revolution Day</p>
+            <p>December 25: Christmas Day</p>
           </div>
         </div>
       </div>
@@ -93,13 +111,11 @@ function CardModal({ countryList }) {
 }
 
 CardModal.propTypes = {
-  countryList: PropTypes.shape({
-    key: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    textDesktop: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+  destination: PropTypes.arrayOf.isRequired,
+  selectionManager: PropTypes.shape({
+    selectedCountry: PropTypes.string,
+    manageCountrySelection: PropTypes.func.isRequired,
   }).isRequired,
 };
 
