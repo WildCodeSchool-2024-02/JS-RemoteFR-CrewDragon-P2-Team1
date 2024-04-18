@@ -25,7 +25,28 @@
   display: none;
 }
 
-@media screen and (min-width: 576px) {
+/*La responsive*/
+
+/*Téléphone en portrait*/
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  body {
+    .footer-content p {
+      font-size: 1.2rem;
+    }
+  }
+}
+/* La tablette*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    background-color: yellow;
+  }
+}
+
+/* Ordinateur*/
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
   .logo {
     width: 7rem;
     position: absolute;

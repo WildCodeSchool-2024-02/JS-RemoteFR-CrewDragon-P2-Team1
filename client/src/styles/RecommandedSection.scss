@@ -108,7 +108,26 @@ body {
 
 /*LA RESPONSIVE*/
 
-@media screen and (min-width: 700px) {
+/* téléphone en portrait*/
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .recommended__section {
+    top: 0;
+    padding-top: 0;
+    h3 {
+      color: black;
+    }
+  }
+}
+/* La tablette*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    background-color: yellow;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
   h3 {
     font-family: $primary-font;
     font-size: 3rem;

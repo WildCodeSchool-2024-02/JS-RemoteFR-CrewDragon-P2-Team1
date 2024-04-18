@@ -18,7 +18,7 @@ function RecommandedList({ destinations, selectionManager }) {
 
   const nPages = Math.ceil(destinations.length / recordsPerPage);
 
-  const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 700px)" });
+  const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 992px)" });
 
   return (
     <div className="recommended__section">

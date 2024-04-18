@@ -119,6 +119,51 @@
   }
 }
 
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .modal-container {
+    .modal {
+      /*Header de la modale*/
+      .modal-header {
+        height: 50vh;
+      }
+      /*Body de la modale*/
+      .modal-content {
+        top: 45vh;
+        height: 60vh;
+        padding: 2rem 3rem;
+
+        p {
+          font-size: 1.2rem;
+        }
+
+        .modal-content-header-heart {
+          .countryH1 {
+            font-size: 2.5rem;
+          }
+          .button__like {
+            .like {
+              height: 2.5rem;
+            }
+          }
+        }
+        .modal-content-weather {
+          .weather-second-block {
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* La tablette*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    background-color: yellow;
+  }
+}
+
 /*@media screen and (min-width: 992px) {
   .modal-container {
     padding: 80px;

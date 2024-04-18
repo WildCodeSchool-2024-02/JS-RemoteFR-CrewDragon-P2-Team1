@@ -94,13 +94,70 @@ h3 {
   }
 }
 
-@media screen and (max-width: 700px) {
-  .button__svg__nav {
-    display: none;
+.button__svg__nav {
+  display: none;
+}
+
+/*La responsive*/
+
+/*Téléphone en portrait*/
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  body {
+    .button__svg__nav {
+      display: none;
+    }
+    .popular__section {
+      top: 0;
+      margin-bottom: 0;
+      .PopularContainer {
+        justify-content: center;
+        .CardsContainer {
+          width: 85%;
+          .PopularLeft {
+            width: 45%;
+          }
+          .desc {
+            h4 {
+              font-size: 1.4rem;
+            }
+            .PopularCity {
+              .PopularText {
+                font-size: 1.2rem;
+              }
+              .map {
+                height: 1.9rem;
+              }
+            }
+            .PopularLike {
+              .like {
+                height: 2rem;
+              }
+              .PopularText {
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .button__svg__nav {
+      display: none;
+    }
   }
 }
 
-@media screen and (min-width: 700px) {
+/* La tablette*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    background-color: yellow;
+  }
+}
+
+/* Ordinateur*/
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
   h3 {
     font-family: $primary-font;
     font-size: 3rem;
