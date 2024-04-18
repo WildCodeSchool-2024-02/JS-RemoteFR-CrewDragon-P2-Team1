@@ -188,7 +188,28 @@ h3 {
         }
       }
     }
+  }
+}
+
+/* Ordinateur*/
+
+@media screen and (min-width: 992px) {
+  .popular__section {
+    margin: 1rem 7rem;
+    position: static;
+    h3 {
+      color: black;
+      font-family: $primary-font;
+      font-size: 3rem;
+    }
+    .popular_list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+    }
     .button__svg__nav {
+      display: block;
       background: linear-gradient(to right, $primary-color, $terciary-color);
       padding: 0.2rem;
       width: 1.7rem;
@@ -196,79 +217,40 @@ h3 {
       cursor: pointer;
       border-radius: 5px;
     }
-  }
-}
+    .PopularContainer {
+      .CardsContainer {
+        height: 13rem;
+        .PopularLeft {
+          width: 55%;
+          margin-left: 0.9rem;
+          .ImgPays {
+            border-radius: 0.5rem;
+          }
+        }
+      }
+      .desc {
+        padding: 1rem 0rem 1rem 2rem;
+        h4 {
+          font-size: 1.9rem;
+        }
+        .PopularCity {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+        .map {
+          height: 1.7rem;
+        }
+        .PopularLike {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
 
-/* Ordinateur*/
-
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-  body {
-    background-color: #04adbf;
-  }
-  h3 {
-    font-family: $primary-font;
-    font-size: 3rem;
-  }
-
-  .popular__section {
-    margin: 1rem 7rem;
-    position: static;
-  }
-
-  .popular_list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  h4 {
-    font-size: 1.9rem;
-  }
-
-  .CardsContainer {
-    height: 13rem;
-  }
-
-  .PopularLeft {
-    width: 55%;
-    margin-left: 0.9rem;
-  }
-
-  .ImgPays {
-    border-radius: 0.5rem;
-  }
-
-  .desc {
-    padding: 1rem 0rem 1rem 2rem;
-  }
-
-  .PopularCity {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .map {
-    height: 1.7rem;
-  }
-
-  .PopularLike {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .PopularText {
-    font-size: 1.2rem;
-  }
-
-  .button__svg__nav {
-    background: linear-gradient(to right, $primary-color, $terciary-color);
-    padding: 0.2rem;
-    width: 1.7rem;
-    height: 1.7rem;
-    cursor: pointer;
-    border-radius: 5px;
+        .PopularText {
+          font-size: 1.2rem;
+        }
+      }
+    }
   }
 }

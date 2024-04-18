@@ -39,8 +39,18 @@
 
 /* Ordinateur*/
 
-@media screen and (min-width: 992px) and (max-width: 1200px) {
+@media screen and (min-width: 992px) {
+  .footer {
+    height: 10vh;
+    margin-bottom: 0;
+    .footer-content {
+      .footer__text {
+        font-size: 1.5rem;
+      }
+    }
+  }
   .logo {
+    display: block;
     width: 7rem;
     position: absolute;
     right: 40px;
