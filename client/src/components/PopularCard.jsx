@@ -54,7 +54,10 @@ function PopularCard({
             </div>
             <div className="PopularLike">
               <button
-                onClick={toggleFunction}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleFunction();
+                }}
                 type="button"
                 className="button__like"
               >

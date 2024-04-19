@@ -55,6 +55,7 @@ body {
     box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
     border-radius: 1rem;
     background: white;
+    cursor: pointer;
     .card__header {
       img {
         max-width: 100%;
@@ -88,7 +89,6 @@ body {
         height: 2rem;
         justify-content: right;
         position: relative;
-        bottom: rem;
         .button__like {
           background-color: transparent;
           border: transparent;
@@ -133,7 +133,117 @@ body {
 
 /* Ordinateur*/
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  body {
+    .recommended__section {
+      margin: 1rem 1rem;
+      padding: 1rem;
+      position: static;
+      h3 {
+        color: black;
+        font-family: $primary-font;
+        font-size: 2.5rem;
+      }
+      .pagination__nav {
+        display: block;
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          li {
+            list-style: none;
+            button {
+              background-color: transparent;
+              border: transparent;
+              font-size: 1rem;
+              font-family: $primary-font;
+              cursor: pointer;
+            }
+            .button__svg__nav {
+              display: block;
+              background: linear-gradient(
+                to right,
+                $primary-color,
+                $terciary-color
+              );
+              padding: 0.2rem;
+              width: 1.7rem;
+              height: 1.7rem;
+              cursor: pointer;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+      .recommended__carousel {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        .card {
+          width: clamp(14rem, calc(14.5rem + 2vw), 18rem);
+          height: clamp(34rem, calc(38rem + 2vw), 40rem);
+          cursor: auto;
+          .card__header {
+            width: 100%;
+            img {
+              width: 100%;
+              height: 14rem;
+              display: block;
+              object-fit: cover;
+            }
+          }
+          .card__body {
+            h4 {
+              font-size: 1.3rem;
+            }
+            .tag {
+              font-size: 0.9rem;
+            }
+            padding: 1rem;
+            .recommanded__text {
+              font-size: 1rem;
+            }
+
+            .recommanded__text__desktop {
+              display: block;
+              font-size: 1rem;
+            }
+            .button__section {
+              display: flex;
+              justify-content: space-between;
+              position: relative;
+              bottom: 0rem;
+              .button__desktop {
+                display: flex;
+              }
+              .button__showmore {
+                background-color: transparent;
+                border: transparent;
+                width: 9rem;
+                font-size: 1rem;
+                font-family: $primary-font;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*La pagination*/
+
+  .active {
+    color: #025959;
+    font-weight: bolder;
+  }
+}
+
+/*Grand écran*/
+
+@media screen and (min-width: 1201px) {
   .recommended__section {
     margin: 1rem 7rem;
     position: static;
@@ -182,6 +292,7 @@ body {
       .card {
         width: clamp(24rem, calc(20rem + 2vw), 26rem);
         height: clamp(32rem, calc(34rem + 2vw), 36rem);
+        cursor: auto;
         .card__header {
           width: 100%;
           img {
@@ -219,9 +330,9 @@ body {
               background-color: transparent;
               border: transparent;
               width: 9rem;
-              cursor: pointer;
               font-size: 1rem;
               font-family: $primary-font;
+              cursor: pointer;
             }
           }
         }

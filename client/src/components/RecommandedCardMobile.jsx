@@ -46,7 +46,10 @@ function RecommandedCardMobile({
             <button
               type="button"
               className="button__like"
-              onClick={toggleFunction}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleFunction();
+              }}
             >
               {toggle ? (
                 <img

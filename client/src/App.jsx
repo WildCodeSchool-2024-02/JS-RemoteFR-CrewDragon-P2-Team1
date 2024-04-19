@@ -108,7 +108,7 @@ const destinations = [
     Label: "Europe",
     Text: " Partez a la decouverte  d'un pays montagneux avec une riche histoire et une culture ancienne.",
     TextDesktop:
-      "l'Armenie est une des plus anciennes villes continuellement habitées au monde, célèbre pour son architecture rose et ses nombreux sites historiques. Le pays est également connu pour son patrimoine culturel, notamment sa musique, sa danse et ses traditions artisanales.  ",
+      "l'Armenie est une des plus anciennes villes continuellement habitées au monde, célèbre pour son architecture rose et ses nombreux sites historiques.",
     isFavorite: false,
     Capital: "Erevan",
     CountryCode: "AM",
@@ -121,7 +121,7 @@ const destinations = [
     Label: "Europe",
     Text: " Partez a la decouverte d'un pays connu pour ses magnifiques paysages alpins, ses villes historiques et sa riche culture.",
     TextDesktop:
-      " L'Autriche est réputée pour son architecture impériale, ses musées renommés et sa scène artistique dynamique. Le pays est également célèbre pour sa musique classique, ayant été le berceau de compositeurs tels que Mozart, Beethoven et Strauss  ",
+      " L'Autriche est réputée pour son architecture impériale, ses musées renommés et sa scène artistique dynamique. Le pays est également célèbre pour sa musique classique.",
     isFavorite: false,
     Capital: "Vienne",
     CountryCode: "AT",
@@ -303,7 +303,7 @@ const destinations = [
     Label: "Amerique du nord",
     Text: " Explorez une beauté naturelle incroyable, avec des paysages diversifiés allant des majestueuses montagnes Rocheuses à l'immensité des Prairies, en passant par les vastes forêts boréales et les magnifiques côtes atlantiques et pacifiques .",
     TextDesktop:
-      "Le Canada est un vaste pays d'Amérique du Nord réputé pour sa diversité culturelle, ses paysages époustouflants et sa qualité de vie élevée. Ses vastes étendues comprennent des montagnes majestueuses, des lacs cristallins, des forêts verdoyantes et des côtes spectaculaires.",
+      "Le Canada est un vaste pays d'Amérique du Nord réputé pour sa diversité culturelle, ses paysages époustouflants et sa qualité de vie élevée.",
     isFavorite: false,
     Capital: "Ottawa",
     CountryCode: "CA",
@@ -407,7 +407,7 @@ const destinations = [
     Label: "Europe",
     Text: "Explorez les paysages tchèques offrant une grande diversité, allant des montagnes des Sudètes et des monts des Géants aux plaines boisées et aux rivières pittoresques",
     TextDesktop:
-      "La République tchèque, également connue sous le nom de Tchéquie, est un pays d'Europe centrale. Elle est réputée pour ses magnifiques châteaux médiévaux, ses charmantes villes historiques telles que Prague, Český Krumlov et Kutná Hora ",
+      "La République tchèque, également connue sous le nom de Tchéquie, est un pays d'Europe centrale. Elle est réputée pour ses magnifiques châteaux médiévaux et ses charmantes villes historiques. ",
     isFavorite: false,
     Capital: "Prague",
     CountryCode: "CZ",
@@ -446,7 +446,7 @@ const destinations = [
     Label: "Amerique du nord",
     Text: "Partez a la decouverte de Sa culture imprégnée de musique et de danse, avec le merengue comme danse nationale. ",
     TextDesktop:
-      "La République dominicaine, située dans les Caraïbes, est célèbre pour ses plages de sable blanc, ses stations balnéaires luxueuses et ses parcours de golf. Elle abrite également des chaînes de montagnes, des vallées fertiles et des cascades spectaculaires.",
+      "La République dominicaine, située dans les Caraïbes, est célèbre pour ses plages de sable blanc, ses stations balnéaires luxueuses et ses parcours de golf.",
     isFavorite: false,
     Capital: "Saint-Dominigue",
     CountryCode: "DO",
@@ -485,7 +485,7 @@ const destinations = [
     Label: "Afrique",
     Text: " L'Égypte est connue pour son riche patrimoine historique, en particulier les pyramides de Gizeh, le sphinx et les temples antiques le long du Nil. ",
     TextDesktop:
-      "Le pays a une histoire ancienne fascinante, avec une civilisation remontant à plus de 5 000 ans. Outre son patrimoine culturel, l'Égypte possède également des stations balnéaires populaires le long de la mer Rouge, telles que Sharm el-Sheikh et Hurghada, qui attirent de nombreux touristes chaque année.",
+      "Le pays a une histoire ancienne fascinante, avec une civilisation remontant à plus de 5 000 ans. ",
     isFavorite: false,
     Capital: "Caire",
     CountryCode: "EG",
@@ -498,7 +498,7 @@ const destinations = [
     Label: "Europe",
     Text: " Explorez sa riche histoire, sa culture vibrante, sa cuisine délicieuse, ses magnifiques plages et ses festivals animés",
     TextDesktop:
-      "Le pays abrite également des sites emblématiques tels que la Sagrada Familia à Barcelone, l'Alhambra à Grenade, et le Palais royal à Madrid. La langue officielle est l'espagnol, et le pays est célèbre pour ses nombreuses fêtes et célébrations colorées, comme la Feria de Abril à Séville et la Tomatina à Buñol. ",
+      "Le pays abrite également des sites emblématiques tels que la Sagrada Familia à Barcelone, l'Alhambra à Grenade, et le Palais royal à Madrid. ",
     isFavorite: false,
     Capital: "Madrid",
     CountryCode: "ES",

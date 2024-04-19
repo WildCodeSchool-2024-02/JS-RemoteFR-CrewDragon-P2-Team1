@@ -51,7 +51,10 @@ function CardModal({ destination, onClose }) {
             <div className="modal-content-header-heart">
               <h1 className="countryH1">Visit {destination.Name}!</h1>
               <button
-                onClick={toggleFunction}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleFunction();
+                }}
                 type="button"
                 className="button__like"
               >

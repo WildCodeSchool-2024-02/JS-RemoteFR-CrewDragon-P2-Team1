@@ -22,17 +22,7 @@ function RecommandedCardDesktop({
   };
 
   return (
-    <div
-      className="container"
-      onClick={() => handleClick(name)}
-      onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === "Space") {
-          handleClick(name);
-        }
-      }}
-      role="button"
-      tabIndex={0}
-    >
+    <div className="container">
       <div className="card">
         <div className="card__header">
           <img src={src} alt={name} className="card__image" />
@@ -43,7 +33,17 @@ function RecommandedCardDesktop({
           <p className="recommended__text">{text}</p>
           <p className="recommended__text__desktop"> {textDesktop}</p>
 
-          <div className="button__section">
+          <div
+            className="button__section"
+            onClick={() => handleClick(name)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === "Space") {
+                handleClick(name);
+              }
+            }}
+            role="button"
+            tabIndex={0}
+          >
             <div className="button__desktop">
               <button className="button__showmore" type="button">
                 Know more
@@ -64,7 +64,10 @@ function RecommandedCardDesktop({
               </svg>
             </div>
             <button
-              onClick={toggleFunction}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleFunction();
+              }}
               type="button"
               className="button__like"
             >

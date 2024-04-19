@@ -4,7 +4,7 @@ import PopularCard from "./PopularCard";
 import "../styles/SectionPopular.scss";
 
 function PopularList({ destinations, selectionManager }) {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(4);
   const recordsPerPage = 3;
 
   const endIndex = page * recordsPerPage;
