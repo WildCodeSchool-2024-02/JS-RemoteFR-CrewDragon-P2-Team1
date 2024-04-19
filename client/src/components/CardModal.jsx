@@ -74,34 +74,40 @@ function CardModal({ destination, onClose }) {
             <p>{destination.TextDesktop}</p>
           </div>
           <div className="modal-content-weather">
-            <h2>Weather</h2>
-            <div className="weather-first-block">
-              <img
-                src="src/assets/images/sun-svgrepo-com.svg"
-                alt="sun logo"
-                className="meteo-icon"
-              />
-              <p className="weather-info">32°C</p>
-              <p className="weather-info">Clear sky</p>
-            </div>
-            <div className="weather-second-block">
-              <img
-                src="src/assets/images/water-svgrepo-com.svg"
-                alt="water drops"
-                className="meteo-icon"
-              />
-              <div className="humidity-info">
-                <p>74%</p>
-                <p>Humidity</p>
+            <h2 className="weather-title">Weather</h2>
+            <div className="weather-blocks">
+              <div className="weather-first-block">
+                <img
+                  src="src/assets/images/sun-svgrepo-com.svg"
+                  alt="sun logo"
+                  className="meteo-icon"
+                />
+                <p className="weather-info">32°C</p>
+                <p className="weather-info">Clear sky</p>
               </div>
-              <img
-                src="src/assets/images/weather-wind-svgrepo-com.svg"
-                alt="wind logo"
-                className="meteo-icon"
-              />
-              <div className="wind-info">
-                <p>5.31km/h</p>
-                <p>Wind speed</p>
+              <div className="weather-second-block">
+                <div className="humidity">
+                  <img
+                    src="src/assets/images/water-svgrepo-com.svg"
+                    alt="water drops"
+                    className="meteo-icon"
+                  />
+                  <div className="humidity-info">
+                    <p>74%</p>
+                    <p>Humidity</p>
+                  </div>
+                </div>
+                <div className="wind">
+                  <img
+                    src="src/assets/images/weather-wind-svgrepo-com.svg"
+                    alt="wind logo"
+                    className="meteo-icon"
+                  />
+                  <div className="wind-info">
+                    <p>5.31km/h</p>
+                    <p>Wind speed</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
