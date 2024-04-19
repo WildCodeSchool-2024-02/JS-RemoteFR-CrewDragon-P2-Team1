@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap");
+
+$primary-color: #04adbf;
+$second-color: #04bfbf;
+$terciary-color: #025959;
+$color-4: #a0a603;
+$primary-font: "Radio Canada", sans-serif;
+$secondary-font: "Quicksand", sans-serif;
+
+/*Les génériques*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+/*Le carroussel - Section recommandées*/
+.recommended__section {
+  position: relative;
+  top: -100px;
+  padding: 2rem;
+  h3 {
+    font-family: $primary-font;
+    font-size: 1.5rem;
+    color: white;
+  }
+  .recommended__carousel {
+    display: flex;
+    gap: 1.5rem;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+  }
+}
+
+/*Carte destinations recommandées*/
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0.8rem 0;
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: clamp(11rem, calc(20rem + 2vw), 14rem);
+    height: clamp(24rem, calc(26rem + 2vh), 28rem);
+    overflow: hidden;
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    background: white;
+    .card__header {
+      img {
+        max-width: 100%;
+        height: 14rem;
+        display: block;
+        object-fit: cover;
+      }
+    }
+    .card__body {
+      padding: 1rem 1rem 0.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .tag {
+        align-self: flex-start;
+        padding: 0.25em 0.75em;
+        border-radius: 1em;
+        font-size: 0.75rem;
+        background: #56ccf2;
+        background: linear-gradient(to right, $second-color, $color-4);
+        color: #fafafa;
+      }
+      h4 {
+        font-size: 1rem;
+      }
+      .recommanded__text {
+        font-size: 0.8rem;
+      }
+      .button__section {
+        display: flex;
+        height: 2rem;
+        justify-content: right;
+        position: relative;
+        bottom: rem;
+        .button__like {
+          background-color: transparent;
+          border: transparent;
+          cursor: pointer;
+          .like {
+            height: 1.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pagination__nav {
+  display: none;
+}
+
+/*LA RESPONSIVE*/
+
+/* téléphone en portrait*/
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .recommended__section {
+    top: 0;
+    padding-top: 0;
+    h3 {
+      color: black;
+    }
+  }
+}
+/* La tablette*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .recommended__section {
+    top: 0;
+    padding-top: 0;
+    h3 {
+      color: black;
+    }
+  }
+}
+
+/* Ordinateur*/
+
+@media screen and (min-width: 992px) {
+  .recommended__section {
+    margin: 1rem 7rem;
+    position: static;
+    h3 {
+      color: black;
+      font-family: $primary-font;
+      font-size: 3rem;
+    }
+    .pagination__nav {
+      display: block;
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        li {
+          list-style: none;
+          button {
+            background-color: transparent;
+            border: transparent;
+            font-size: 1rem;
+            font-family: $primary-font;
+            cursor: pointer;
+          }
+          .button__svg__nav {
+            display: block;
+            background: linear-gradient(
+              to right,
+              $primary-color,
+              $terciary-color
+            );
+            padding: 0.2rem;
+            width: 1.7rem;
+            height: 1.7rem;
+            cursor: pointer;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+    .recommended__carousel {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      .card {
+        width: clamp(24rem, calc(20rem + 2vw), 26rem);
+        height: clamp(32rem, calc(34rem + 2vw), 36rem);
+        .card__header {
+          width: 100%;
+          img {
+            width: 100%;
+            height: 14rem;
+            display: block;
+            object-fit: cover;
+          }
+        }
+        .card__body {
+          h4 {
+            font-size: 1.9rem;
+          }
+          .tag {
+            font-size: 0.9rem;
+          }
+          padding: 1rem;
+          .recommanded__text {
+            font-size: 1.2rem;
+          }
+
+          .recommanded__text__desktop {
+            display: block;
+            font-size: 1.2rem;
+          }
+          .button__section {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            bottom: -1rem;
+            .button__desktop {
+              display: flex;
+            }
+            .button__showmore {
+              background-color: transparent;
+              border: transparent;
+              width: 9rem;
+              cursor: pointer;
+              font-size: 1rem;
+              font-family: $primary-font;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*La pagination*/
+
+.active {
+  color: #025959;
+  font-weight: bolder;
+}

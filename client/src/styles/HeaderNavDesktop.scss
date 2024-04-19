@@ -1,0 +1,181 @@
+$primary-font: "Radio Canada", sans-serif;
+$secondary-font: "Quicksand", sans-serif;
+$primary-color: #04adbf;
+$second-color: #04bfbf;
+$terciary-color: #025959;
+$color-4: #a0a603;
+
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap");
+
+* {
+  margin: 0;
+  text-decoration: none;
+}
+
+.DHearderContainer {
+  width: auto;
+  height: 400px;
+  background: no-repeat center/100% url("../assets/images/plage.jpg");
+  margin: 15px;
+  border-radius: 10px;
+}
+
+.DHearderNav {
+  background-color: white;
+  padding: 10px;
+  border-bottom-right-radius: 15px;
+  font-size: small;
+}
+
+.DlinkHeader {
+  font-family: $primary-font;
+  font-weight: 500;
+  color: black;
+  margin-right: 10px;
+}
+
+.DlinkHeader:hover {
+  font-family: $primary-font;
+  color: #025959;
+}
+
+.DHearderTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 300px;
+  font-family: $primary-font;
+  color: white;
+  text-shadow: gray 1px 1px 1px;
+  font-size: 2rem;
+  margin-left: 10px;
+}
+
+.DHearderTitle h1 {
+  width: auto;
+  margin-left: 12px;
+}
+
+.DheaderInput {
+  justify-content: center;
+  height: 30px;
+  margin-top: 5px;
+  border-radius: 7px;
+  margin-left: 30px;
+  outline: none;
+  border: solid 1px rgb(216, 214, 214);
+  font-family: $primary-font;
+  font-weight: 100;
+  font-size: 0.8rem;
+  background-image: url("../assets/images/chercher.png");
+  background-repeat: no-repeat;
+  background-size: 12px;
+  background-position: 10px 12px;
+  padding-left: 30px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  flex-grow: 2;
+  width: 400px;
+  max-width: 100%;
+}
+
+.DinputBtn {
+  display: flex;
+  width: auto;
+  max-width: 100%;
+  position: relative;
+}
+
+.DinputBtn img {
+  background: linear-gradient($primary-color, $second-color, $terciary-color);
+  padding: 4px;
+  border-radius: 3px;
+  margin-top: 11px;
+}
+
+.DiconNav {
+  width: 12px;
+  height: 12px;
+  margin-right: 3px;
+}
+
+.DiconNav2 {
+  position: relative;
+  right: 35px;
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 980px) {
+  .DHearderTitle {
+    margin-top: 305px;
+    font-size: 2rem;
+  }
+
+  .DheaderInput {
+    width: 350px;
+  }
+
+  .DinputBtn img {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 930px) {
+  .DHearderTitle {
+    font-size: 1.8rem;
+    margin-top: 310px;
+  }
+
+  .DheaderInput {
+    background-position: 10px 9px;
+    width: 350px;
+    margin-top: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .DinputBtn img {
+    margin-top: 7px;
+  }
+
+  .DiconNav2 {
+    right: 30px;
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 880px) {
+  .DHearderTitle {
+    font-size: 1.8rem;
+    margin-top: 310px;
+  }
+
+  .DheaderInput {
+    width: 300px;
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 840px) {
+  .DHearderTitle {
+    font-size: 1.5rem;
+    margin-top: 320px;
+  }
+
+  .DheaderInput {
+    width: 250px;
+  }
+}
+
+@media (max-width: 715px) {
+  .DHearderTitle {
+    font-size: 1.5rem;
+    margin-top: 310x;
+  }
+
+  .DheaderInput {
+    width: 200px;
+  }
+}
