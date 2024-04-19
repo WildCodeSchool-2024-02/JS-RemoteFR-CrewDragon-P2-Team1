@@ -18,11 +18,11 @@ function RecommandedList({ destinations, selectionManager }) {
 
   const nPages = Math.ceil(destinations.length / recordsPerPage);
 
-  const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 700px)" });
+  const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 991px)" });
 
   return (
     <div className="recommended__section">
-      <h3 className="white">Recommended for you</h3>
+      <h3>Recommended for you</h3>
       <div className="recommended__carousel">
         {pageDestinations.map((destination) => (
           <div key={destination.ID}>
@@ -35,6 +35,8 @@ function RecommandedList({ destinations, selectionManager }) {
                   text={destination.Text}
                   textDesktop={destination.TextDesktop}
                   isFavorite={destination.isFavorite}
+                  selectionManager={selectionManager}
+                  destination={destination}
                 />
               </div>
             ) : (

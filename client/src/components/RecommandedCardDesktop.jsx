@@ -8,6 +8,8 @@ function RecommandedCardDesktop({
   text,
   isFavorite,
   textDesktop,
+  selectionManager,
+  destination,
 }) {
   const [toggle, setToggle] = useState(isFavorite);
 
@@ -15,8 +17,22 @@ function RecommandedCardDesktop({
     setToggle(!toggle);
   };
 
+  const handleClick = () => {
+    selectionManager.manageCountrySelection(destination);
+  };
+
   return (
-    <div className="container">
+    <div
+      className="container"
+      onClick={() => handleClick(name)}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === "Space") {
+          handleClick(name);
+        }
+      }}
+      role="button"
+      tabIndex={0}
+    >
       <div className="card">
         <div className="card__header">
           <img src={src} alt={name} className="card__image" />
@@ -80,6 +96,11 @@ RecommandedCardDesktop.propTypes = {
   text: PropTypes.string.isRequired,
   isFavorite: PropTypes.bool.isRequired,
   textDesktop: PropTypes.string.isRequired,
+  destination: PropTypes.arrayOf.isRequired,
+  selectionManager: PropTypes.shape({
+    selectedCountry: PropTypes.string,
+    manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default RecommandedCardDesktop;

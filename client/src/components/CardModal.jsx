@@ -1,8 +1,15 @@
+import { useState } from "react";
 import "../styles/CardModal.scss";
 import PropTypes from "prop-types";
 
 function CardModal({ destination, onClose }) {
   window.scrollTo(0, 0);
+
+  const [toggle, setToggle] = useState(destination.Isfavorite);
+
+  const toggleFunction = () => {
+    setToggle(!toggle);
+  };
 
   return (
     <div
@@ -18,7 +25,11 @@ function CardModal({ destination, onClose }) {
     >
       <div className="modal">
         <div className="modal-header">
-          <img src={destination.Src} alt="" className="modal-image" />
+          <img
+            src={destination.Src}
+            alt={destination.Name}
+            className="modal-image"
+          />
           <svg
             onClick={onClose}
             xmlns="http://www.w3.org/2000/svg"
@@ -39,9 +50,28 @@ function CardModal({ destination, onClose }) {
           <div className="modal-content-header">
             <div className="modal-content-header-heart">
               <h1 className="countryH1">Visit {destination.Name}!</h1>
+              <button
+                onClick={toggleFunction}
+                type="button"
+                className="button__like"
+              >
+                {toggle ? (
+                  <img
+                    src="src/assets/images/blueheart.png"
+                    alt="blueheart"
+                    className="like"
+                  />
+                ) : (
+                  <img
+                    src="src/assets/images/greyheart.png"
+                    alt="greyheart"
+                    className="like"
+                  />
+                )}
+              </button>
             </div>
             <p>{destination.Text}</p>
-            <p>text</p>
+            <p>{destination.TextDesktop}</p>
           </div>
           <div className="modal-content-weather">
             <h2 className="weather-title">Weather</h2>
@@ -82,33 +112,25 @@ function CardModal({ destination, onClose }) {
             </div>
           </div>
           <div className="modal-content-converter">
-            <h2 className="currency-title">Currency Converter</h2>
-            <form>
-              <label htmlFor="fromCurrency">From:</label>
-              <input type="text" id="fromCurrency" />
-              <br />
-              <label htmlFor="toCurrency">To:</label>
-              <input type="text" id="toCurrency" />
-              <br />
-              <label htmlFor="amount">Amount:</label>
-              <input type="text" id="amount" />
-              <br />
-              <button className="button-convert" type="button">
-                Convert
-              </button>
-              <p className="amount-result">Amount (EUR): €</p>
-            </form>
+            <h2>Currency Converter</h2>
+            <div className="converter-text">
+              <p> 1 euros </p>
+              <p> =</p>
+              <p> Equivalent en devise nationale </p>
+            </div>
           </div>
           <div className="modal-content-holidays">
-            <h2 className="holidays-title">National Holidays</h2>
-            <p>January 1: New Year's Day</p>
-            <p>February 4: Mexican Constitution Day</p>
-            <p>March 18: Birth of Benito Juarez, Mexican Republic hero</p>
-            <p>Good Friday, Saturday, Easter Sunday</p>
-            <p>May 1: Labor Day</p>
-            <p>September 16: Mexican Independence Day</p>
-            <p>November 18: Mexican Revolution Day</p>
-            <p>December 25: Christmas Day</p>
+            <h2>National Holidays</h2>
+            <div className="holidays-text">
+              <p>January 1: New Year's Day</p>
+              <p>February 4: Mexican Constitution Day</p>
+              <p>March 18: Birth of Benito Juarez, Mexican Republic hero</p>
+              <p>Good Friday, Saturday, Easter Sunday</p>
+              <p>May 1: Labor Day</p>
+              <p>September 16: Mexican Independence Day</p>
+              <p>November 18: Mexican Revolution Day</p>
+              <p>December 25: Christmas Day</p>
+            </div>
           </div>
         </div>
       </div>

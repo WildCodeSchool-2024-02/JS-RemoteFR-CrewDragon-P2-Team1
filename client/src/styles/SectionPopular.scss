@@ -22,143 +22,235 @@ body {
 h3 {
   font-family: $primary-font;
   font-size: 1.5rem;
+  color: black;
 }
 
-h4 {
-  font-size: 1rem;
-}
+/*La section popular et ses cartes*/
 
 .popular__section {
   margin: 0rem 2rem 2rem;
   box-sizing: border-box;
-}
-.PopularContainer {
-  display: flex;
-}
-
-.CardsContainer {
-  border-radius: 1rem;
-  width: 100%;
-  height: 10rem;
-  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
-  margin: 0.8rem 0;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-}
-
-.PopularLeft {
-  width: 55%;
-  margin-left: 0.5rem;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ImgPays {
-  width: 100%;
-  height: 90%;
-  border-radius: 1rem;
-}
-
-.desc {
-  width: 45%;
-  height: 90%;
-  box-sizing: border-box;
-  padding: 0.7rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.PopularCity {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.map {
-  height: 1.7rem;
-}
-
-.PopularLike {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-@media screen and (max-width: 700px) {
-  .button__svg__nav {
-    display: none;
+  position: relative;
+  top: -100px;
+  margin-bottom: -90px;
+  .PopularContainer {
+    display: flex;
+    .CardsContainer {
+      border-radius: 1rem;
+      width: 100%;
+      height: 10rem;
+      box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+      margin: 0.8rem 0;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      .PopularLeft {
+        width: 55%;
+        margin-left: 0.5rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .ImgPays {
+          width: 100%;
+          height: 90%;
+          border-radius: 1rem;
+        }
+      }
+      .desc {
+        width: 45%;
+        height: 90%;
+        box-sizing: border-box;
+        padding: 0.7rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        h4 {
+          font-size: 1rem;
+        }
+        .PopularCity {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          .map {
+            height: 1.7rem;
+          }
+        }
+        .PopularLike {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          .button__like {
+            background-color: transparent;
+            border: transparent;
+            cursor: pointer;
+            .like {
+              height: 1.8rem;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
-@media screen and (min-width: 700px) {
-  h3 {
-    font-family: $primary-font;
-    font-size: 3rem;
-  }
+.button__svg__nav {
+  display: none;
+}
 
+/*La responsive*/
+
+/*Téléphone en portrait*/
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  body {
+    .button__svg__nav {
+      display: none;
+    }
+    .popular__section {
+      top: 0;
+      margin-bottom: 0;
+      .PopularContainer {
+        justify-content: center;
+        .CardsContainer {
+          width: 85%;
+          .PopularLeft {
+            width: 45%;
+          }
+          .desc {
+            h4 {
+              font-size: 1.4rem;
+            }
+            .PopularCity {
+              .PopularText {
+                font-size: 1.2rem;
+              }
+              .map {
+                height: 1.9rem;
+              }
+            }
+            .PopularLike {
+              .like {
+                height: 2rem;
+              }
+              .PopularText {
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .button__svg__nav {
+      display: none;
+    }
+  }
+}
+
+/* La tablette*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    .popular__section {
+      top: 0;
+      margin-bottom: 0;
+      .popular_list {
+        display: flex;
+        gap: 1.5rem;
+        .PopularContainer {
+          justify-content: center;
+          .CardsContainer {
+            .PopularLeft {
+              width: 45%;
+            }
+            .desc {
+              h4 {
+                font-size: 1.1rem;
+              }
+              .PopularCity {
+                .PopularText {
+                  font-size: 0.9rem;
+                }
+                .map {
+                  height: 1.6rem;
+                }
+              }
+              .PopularLike {
+                .like {
+                  height: 1.6rem;
+                }
+                .PopularText {
+                  font-size: 0.9rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Ordinateur*/
+
+@media screen and (min-width: 992px) {
   .popular__section {
     margin: 1rem 7rem;
     position: static;
-  }
+    h3 {
+      color: black;
+      font-family: $primary-font;
+      font-size: 3rem;
+    }
+    .popular_list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .button__svg__nav {
+      display: block;
+      background: linear-gradient(to right, $primary-color, $terciary-color);
+      padding: 0.2rem;
+      width: 1.7rem;
+      height: 1.7rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .PopularContainer {
+      .CardsContainer {
+        height: 13rem;
+        .PopularLeft {
+          width: 55%;
+          margin-left: 0.9rem;
+          .ImgPays {
+            border-radius: 0.5rem;
+          }
+        }
+      }
+      .desc {
+        padding: 1rem 0rem 1rem 2rem;
+        h4 {
+          font-size: 1.9rem;
+        }
+        .PopularCity {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+        .map {
+          height: 1.7rem;
+        }
+        .PopularLike {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
 
-  .popular_list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  h4 {
-    font-size: 1.9rem;
-  }
-
-  .CardsContainer {
-    height: 13rem;
-  }
-
-  .PopularLeft {
-    width: 55%;
-    margin-left: 0.9rem;
-  }
-
-  .ImgPays {
-    border-radius: 0.5rem;
-  }
-
-  .desc {
-    padding: 1rem 0rem 1rem 2rem;
-  }
-
-  .PopularCity {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .map {
-    height: 1.7rem;
-  }
-
-  .PopularLike {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .PopularText {
-    font-size: 1.2rem;
-  }
-
-  .button__svg__nav {
-    background: linear-gradient(to right, $primary-color, $terciary-color);
-    padding: 0.2rem;
-    width: 1.7rem;
-    height: 1.7rem;
-    cursor: pointer;
-    border-radius: 5px;
+        .PopularText {
+          font-size: 1.2rem;
+        }
+      }
+    }
   }
 }
