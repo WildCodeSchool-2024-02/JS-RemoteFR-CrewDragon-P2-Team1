@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import CardModal from "./CardModal";
 
-function ModalManager({ selectionManager }) {
+function ModalManager({ selectionManager, manageLikes }) {
   const [cardModalOpen, setCardModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -28,6 +28,7 @@ function ModalManager({ selectionManager }) {
           <CardModal
             destination={selectionManager.selectedCountry}
             onClose={toggleModal}
+            manageLikes={manageLikes}
           />
         )}
     </div>
@@ -38,6 +39,10 @@ ModalManager.propTypes = {
   selectionManager: PropTypes.shape({
     selectedCountry: PropTypes.string,
     manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
+  manageLikes: PropTypes.shape({
+    likeDestination: PropTypes.instanceOf(Map).isRequired,
+    addOrRemoveDestination: PropTypes.func.isRequired,
   }).isRequired,
 };
 

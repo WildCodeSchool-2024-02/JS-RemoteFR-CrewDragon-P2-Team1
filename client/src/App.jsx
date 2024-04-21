@@ -7,6 +7,8 @@ import RecommandedList from "./components/RecommandedList";
 import Footer from "./components/Footer";
 import PopularList from "./components/PopularList";
 import ModalManager from "./components/ModalManager";
+import LikeSection from "./components/LikeSection";
+import ManageLikes from "./components/LikeDestinationsManagers";
 
 const destinations = [
   {
@@ -512,18 +514,29 @@ function App() {
 
   const selectionManager = new CountrySelectionManager();
 
+  const manageLikes = new ManageLikes();
+
   return (
     <div className="root">
       {isTabletOrMobile && <HeaderNavMobile />}
       {isDesktopOrLaptop && <HeaderNavDesktop />}
-      <ModalManager selectionManager={selectionManager} />
+      <ModalManager
+        selectionManager={selectionManager}
+        manageLikes={manageLikes}
+      />
       <RecommandedList
         destinations={destinations}
         selectionManager={selectionManager}
+        manageLikes={manageLikes}
       />
       <PopularList
         destinations={destinations}
         selectionManager={selectionManager}
+        manageLikes={manageLikes}
+      />
+      <LikeSection
+        selectionManager={selectionManager}
+        manageLikes={manageLikes}
       />
       <Footer />
     </div>

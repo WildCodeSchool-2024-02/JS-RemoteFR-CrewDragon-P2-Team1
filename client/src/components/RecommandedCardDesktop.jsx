@@ -1,20 +1,13 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import greyheart from "../assets/images/greyheart.png";
 
 function RecommandedCardDesktop({
-  name,
-  src,
-  label,
-  text,
-  isFavorite,
-  textDesktop,
   selectionManager,
   destination,
+  manageLikes,
 }) {
-  const [toggle, setToggle] = useState(isFavorite);
-
   const toggleFunction = () => {
-    setToggle(!toggle);
+    manageLikes.addOrRemoveDestination(destination);
   };
 
   const handleClick = () => {
@@ -25,20 +18,27 @@ function RecommandedCardDesktop({
     <div className="container">
       <div className="card">
         <div className="card__header">
-          <img src={src} alt={name} className="card__image" />
+          <img
+            src={destination.Src}
+            alt={destination.Name}
+            className="card__image"
+          />
         </div>
         <div className="card__body">
-          <span className="tag">{label}</span>
-          <h4>Visit {name} !</h4>
-          <p className="recommended__text">{text}</p>
-          <p className="recommended__text__desktop"> {textDesktop}</p>
+          <span className="tag">{destination.Label}</span>
+          <h4>Visit {destination.Name} !</h4>
+          <p className="recommended__text">{destination.Text}</p>
+          <p className="recommended__text__desktop">
+            {" "}
+            {destination.TextDesktop}
+          </p>
 
           <div
             className="button__section"
-            onClick={() => handleClick(name)}
+            onClick={() => handleClick(destination.Name)}
             onKeyDown={(event) => {
               if (event.key === "Enter" || event.key === "Space") {
-                handleClick(name);
+                handleClick(destination.Name);
               }
             }}
             role="button"
@@ -71,18 +71,14 @@ function RecommandedCardDesktop({
               type="button"
               className="button__like"
             >
-              {toggle ? (
+              {manageLikes.likeDestination.has(destination.ID) ? (
                 <img
                   src="src/assets/images/blueheart.png"
                   alt="blueheart"
                   className="like"
                 />
               ) : (
-                <img
-                  src="src/assets/images/greyheart.png"
-                  alt="greyheart"
-                  className="like"
-                />
+                <img src={greyheart} alt="greyheart" className="like" />
               )}
             </button>
           </div>
@@ -93,16 +89,25 @@ function RecommandedCardDesktop({
 }
 
 RecommandedCardDesktop.propTypes = {
-  name: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  isFavorite: PropTypes.bool.isRequired,
-  textDesktop: PropTypes.string.isRequired,
-  destination: PropTypes.arrayOf.isRequired,
+  destination: PropTypes.shape({
+    ID: PropTypes.number.isRequired,
+    Name: PropTypes.string.isRequired,
+    Src: PropTypes.string.isRequired,
+    Label: PropTypes.string.isRequired,
+    Text: PropTypes.string.isRequired,
+    TextDesktop: PropTypes.string.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
+    Capital: PropTypes.string.isRequired,
+    CountryCode: PropTypes.string.isRequired,
+    Currency: PropTypes.string.isRequired,
+  }).isRequired,
   selectionManager: PropTypes.shape({
     selectedCountry: PropTypes.string,
     manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
+  manageLikes: PropTypes.shape({
+    likeDestination: PropTypes.instanceOf(Map).isRequired,
+    addOrRemoveDestination: PropTypes.func.isRequired,
   }).isRequired,
 };
 

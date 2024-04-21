@@ -1,14 +1,11 @@
-import { useState } from "react";
 import "../styles/CardModal.scss";
 import PropTypes from "prop-types";
 
-function CardModal({ destination, onClose }) {
+function CardModal({ destination, onClose, manageLikes }) {
   window.scrollTo(0, 0);
 
-  const [toggle, setToggle] = useState(destination.Isfavorite);
-
   const toggleFunction = () => {
-    setToggle(!toggle);
+    manageLikes.addOrRemoveDestination(destination);
   };
 
   return (
@@ -58,7 +55,7 @@ function CardModal({ destination, onClose }) {
                 type="button"
                 className="button__like"
               >
-                {toggle ? (
+                {manageLikes.likeDestination.has(destination.ID) ? (
                   <img
                     src="src/assets/images/blueheart.png"
                     alt="blueheart"
@@ -147,6 +144,10 @@ CardModal.propTypes = {
   selectionManager: PropTypes.shape({
     selectedCountry: PropTypes.string,
     manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
+  manageLikes: PropTypes.shape({
+    likeDestination: PropTypes.instanceOf(Map).isRequired,
+    addOrRemoveDestination: PropTypes.func.isRequired,
   }).isRequired,
 };
 
