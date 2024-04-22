@@ -1,32 +1,22 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 
-function PopularCard({
-  src,
-  name,
-  Isfavorite,
-  city,
-  selectionManager,
-  destination,
-}) {
+function PopularCard({ selectionManager, destination, manageLikes }) {
   const handleClick = () => {
     selectionManager.manageCountrySelection(destination);
   };
 
-  const [toggle, setToggle] = useState(Isfavorite);
-
   const toggleFunction = () => {
-    setToggle(!toggle);
+    manageLikes.addOrRemoveDestination(destination);
   };
 
   return (
     <div>
       <div
         className="PopularContainer"
-        onClick={() => handleClick(name)}
+        onClick={() => handleClick(destination.Name)}
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === "Space") {
-            handleClick(name);
+            handleClick(destination.Name);
           }
         }}
         role="button"
@@ -34,10 +24,14 @@ function PopularCard({
       >
         <div className="CardsContainer">
           <div className="PopularLeft">
-            <img src={src} alt={name} className="ImgPays" />
+            <img
+              src={destination.Src}
+              alt={destination.Name}
+              className="ImgPays"
+            />
           </div>
           <div className="desc">
-            <h4>{name}</h4>
+            <h4>{destination.Name}</h4>
             <div className="PopularCity">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,15 +44,18 @@ function PopularCard({
                 <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
               </svg>
 
-              <p className="PopularText">{city}</p>
+              <p className="PopularText">{destination.Capital}</p>
             </div>
             <div className="PopularLike">
               <button
-                onClick={toggleFunction}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleFunction();
+                }}
                 type="button"
                 className="button__like"
               >
-                {toggle ? (
+                {manageLikes.likeDestination.has(destination.ID) ? (
                   <img
                     src="src/assets/images/blueheart.png"
                     alt="blueheart"
@@ -82,14 +79,25 @@ function PopularCard({
 }
 
 PopularCard.propTypes = {
-  src: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  Isfavorite: PropTypes.bool.isRequired,
-  destination: PropTypes.arrayOf.isRequired,
+  destination: PropTypes.shape({
+    ID: PropTypes.number.isRequired,
+    Name: PropTypes.string.isRequired,
+    Src: PropTypes.string.isRequired,
+    Label: PropTypes.string.isRequired,
+    Text: PropTypes.string.isRequired,
+    TextDesktop: PropTypes.string.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
+    Capital: PropTypes.string.isRequired,
+    CountryCode: PropTypes.string.isRequired,
+    Currency: PropTypes.string.isRequired,
+  }).isRequired,
   selectionManager: PropTypes.shape({
     selectedCountry: PropTypes.string,
     manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
+  manageLikes: PropTypes.shape({
+    likeDestination: PropTypes.instanceOf(Map).isRequired,
+    addOrRemoveDestination: PropTypes.func.isRequired,
   }).isRequired,
 };
 
