@@ -7,19 +7,22 @@ import DiconAbout from "./assets/images/info.png";
 
 const routes = [
   {
-    title: "Accueil",
+    title: "Home",
+    path: "/",
     href: "#",
     Icon: iconAccueil,
     IconD: DiconAccueil,
   },
   {
     title: "Contact",
+    path: "/about",
     href: "#",
     Icon: iconContact,
     IconD: DiconContact,
   },
   {
-    title: "A Propos",
+    title: "About",
+    path: "/about",
     href: "#",
     Icon: iconAbout,
     IconD: DiconAbout,
