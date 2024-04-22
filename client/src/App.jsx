@@ -1,17 +1,12 @@
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-
 import HeaderNavMobile from "./components/HeaderNavMobile";
 import HeaderNavDesktop from "./components/HeaderNavDesktop";
 import RecommandedList from "./components/RecommandedList";
 import Footer from "./components/Footer";
 import PopularList from "./components/PopularList";
-import SectionPopular from "./components/SectionPopular";
 import CardModal from "./components/CardModal";
-
 import destination from "./data/cards";
-
-import "./SectionPopular.scss";
 
 const countryList = [
   {
@@ -45,7 +40,7 @@ function App() {
       {isDesktopOrLaptop && <HeaderNavDesktop />}
       <RecommandedList />
       <PopularList destination={destination} />
-      <SectionPopular destination={destination} />
+
       <button type="button" onClick={() => setCardModalOpen(true)}>
         Popular
       </button>
