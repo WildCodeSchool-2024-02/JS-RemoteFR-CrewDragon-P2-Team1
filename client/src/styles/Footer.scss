@@ -1,39 +1,78 @@
 .footer {
   border-radius: 15px 15px 0 0;
-  bottom: 0;
   width: 100%;
   background: linear-gradient(90deg, #04adbf, #04bfbf, #025959);
   color: #fff;
   padding: 20px;
   text-align: center;
-}
-
-.footer-content {
-  font-family: "Quicksand", sans-serif;
-  height: 100%;
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer-content :hover {
-  text-decoration: underline;
-}
-.footer-content p {
-  font-size: 20px;
-  margin-bottom: 10px;
+  position: absolute;
+  .footer-content {
+    font-family: "Quicksand", sans-serif;
+    height: 100%;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .footer-content p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .logo {
-  width: 7rem;
-  position: absolute;
-  right: 40px;
+  display: none;
 }
 
-@media screen and (max-width: 576px) {
+/*La responsive*/
+
+/*Téléphone en portrait*/
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  body {
+    .footer-content p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+/* Ordinateur*/
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .footer {
+    height: 12vh;
+    margin-bottom: 0;
+    .footer-content {
+      .footer__text {
+        font-size: 1.3rem;
+      }
+    }
+  }
   .logo {
-    display: none;
+    display: block;
+    width: 7rem;
+    position: absolute;
+    right: 40px;
+  }
+}
+
+/*Grand écran*/
+
+@media screen and (min-width: 1201px) {
+  .footer {
+    height: 10vh;
+    margin-bottom: 0;
+    .footer-content {
+      .footer__text {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .logo {
+    display: block;
+    width: 7rem;
+    position: absolute;
+    right: 40px;
   }
 }

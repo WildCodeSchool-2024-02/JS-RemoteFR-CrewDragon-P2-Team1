@@ -16,26 +16,29 @@ $secondary-font: "Quicksand", sans-serif;
 
 body {
   font-family: "Quicksand", sans-serif;
-  height: 100vh;
 }
 
-h3 {
-  font-family: $primary-font;
-  font-size: 1.5rem;
-}
-
-/*Le carroussel*/
+/*Le carroussel - Section recommandées*/
 .recommended__section {
-  margin: 2rem;
+  position: relative;
+  top: -100px;
+  padding: 2rem;
+  h3 {
+    font-family: $primary-font;
+    font-size: 1.5rem;
+    color: white;
+  }
   .recommended__carousel {
     display: flex;
     gap: 1.5rem;
     scroll-behavior: smooth;
-    overflow-y: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
   }
 }
 
-/*La carte destinations recommandées*/
+/*Carte destinations recommandées*/
 
 .container {
   display: flex;
@@ -43,65 +46,58 @@ h3 {
   justify-content: center;
   max-width: 1200px;
   margin: 0.8rem 0;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  width: clamp(11rem, calc(20rem + 2vw), 14rem);
-  height: clamp(23rem, calc(25rem + 2vh), 27rem);
-  overflow: hidden;
-  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
-  border-radius: 1rem;
-  background: white;
-}
-
-img {
-  max-width: 100%;
-  height: 14rem;
-  display: block;
-  object-fit: cover;
-}
-
-.card__body {
-  padding: 1rem 1rem 0.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.tag {
-  align-self: flex-start;
-  padding: 0.25em 0.75em;
-  border-radius: 1em;
-  font-size: 0.75rem;
-  background: #56ccf2;
-  background: linear-gradient(to right, $second-color, $color-4);
-  color: #fafafa;
-}
-
-h4 {
-  font-size: 1rem;
-}
-
-.recommanded__text {
-  font-size: 0.8rem;
-}
-
-.button__section {
-  display: flex;
-  height: 2rem;
-  justify-content: right;
-}
-
-.button__like {
-  background-color: transparent;
-  border: transparent;
-  cursor: pointer;
-}
-
-.like {
-  height: 1.7rem;
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: clamp(11rem, calc(20rem + 2vw), 14rem);
+    height: clamp(24rem, calc(26rem + 2vh), 28rem);
+    overflow: hidden;
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    background: white;
+    cursor: pointer;
+    .card__header {
+      img {
+        max-width: 100%;
+        height: 14rem;
+        display: block;
+        object-fit: cover;
+      }
+    }
+    .card__body {
+      padding: 1rem 1rem 0.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .tag {
+        align-self: flex-start;
+        padding: 0.25em 0.75em;
+        border-radius: 1em;
+        font-size: 0.75rem;
+        background: #56ccf2;
+        background: linear-gradient(to right, $second-color, $color-4);
+        color: #fafafa;
+      }
+      h4 {
+        font-size: 1rem;
+      }
+      .recommanded__text {
+        font-size: 0.8rem;
+      }
+      .button__section {
+        display: flex;
+        height: 2rem;
+        justify-content: right;
+        position: relative;
+        .button__like {
+          background-color: transparent;
+          border: transparent;
+          cursor: pointer;
+          height: 2.2rem;
+        }
+      }
+    }
+  }
 }
 
 .pagination__nav {
@@ -110,105 +106,240 @@ h4 {
 
 /*LA RESPONSIVE*/
 
-@media screen and (min-width: 700px) {
-  h3 {
-    font-family: $primary-font;
-    font-size: 3rem;
-  }
+/* téléphone en portrait*/
 
+@media screen and (min-width: 576px) and (max-width: 767px) {
   .recommended__section {
-    margin: 1rem 7rem;
+    top: 0;
+    padding-top: 0;
+    h3 {
+      color: black;
+    }
   }
+}
+/* La tablette*/
 
-  .recommended__carousel {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .recommended__section {
+    top: 0;
+    padding-top: 0;
+    h3 {
+      color: black;
+    }
   }
+}
 
-  .recommanded__text {
-    font-size: 1.2rem;
-  }
+/* Ordinateur*/
 
-  .recommanded__text__desktop {
-    display: block;
-    font-size: 1.2rem;
-  }
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  body {
+    .recommended__section {
+      margin: 1rem 1rem;
+      padding: 1rem;
+      position: static;
+      h3 {
+        color: black;
+        font-family: $primary-font;
+        font-size: 2.5rem;
+      }
+      .pagination__nav {
+        display: block;
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          li {
+            list-style: none;
+            button {
+              background-color: transparent;
+              border: transparent;
+              font-size: 1rem;
+              font-family: $primary-font;
+              cursor: pointer;
+            }
+            .button__svg__nav {
+              display: block;
+              background: linear-gradient(
+                to right,
+                $primary-color,
+                $terciary-color
+              );
+              padding: 0.2rem;
+              width: 1.7rem;
+              height: 1.7rem;
+              cursor: pointer;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+      .recommended__carousel {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        .card {
+          width: clamp(14rem, calc(14.5rem + 2vw), 18rem);
+          height: clamp(34rem, calc(38rem + 2vw), 40rem);
+          cursor: auto;
+          .card__header {
+            width: 100%;
+            img {
+              width: 100%;
+              height: 14rem;
+              display: block;
+              object-fit: cover;
+            }
+          }
+          .card__body {
+            h4 {
+              font-size: 1.3rem;
+            }
+            .tag {
+              font-size: 0.9rem;
+            }
+            padding: 1rem;
+            .recommanded__text {
+              font-size: 1rem;
+            }
 
-  .card {
-    width: clamp(24rem, calc(20rem + 2vw), 26rem);
-    height: clamp(34rem, calc(36rem + 2vw), 38rem);
-  }
-
-  img {
-    height: auto;
-  }
-
-  .card__body {
-    padding: 1rem;
-  }
-
-  h4 {
-    font-size: 1.9rem;
-  }
-
-  .tag {
-    font-size: 0.9rem;
-  }
-
-  .button__section {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .button__desktop {
-    display: flex;
-  }
-
-  .button__showmore {
-    background-color: transparent;
-    border: transparent;
-    width: 9rem;
-    cursor: pointer;
-    font-size: 1rem;
-    font-family: $primary-font;
+            .recommanded__text__desktop {
+              display: block;
+              font-size: 1rem;
+            }
+            .button__section {
+              display: flex;
+              justify-content: space-between;
+              position: relative;
+              bottom: 0rem;
+              .button__desktop {
+                display: flex;
+              }
+              .button__showmore {
+                background-color: transparent;
+                border: transparent;
+                width: 9rem;
+                font-size: 1rem;
+                font-family: $primary-font;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   /*La pagination*/
 
-  .pagination__nav {
-    display: block;
-    ul {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      li {
-        list-style: none;
-        button {
-          background-color: transparent;
-          border: transparent;
-          font-size: 1rem;
-          font-family: $primary-font;
-          cursor: pointer;
+  .active {
+    color: #025959;
+    font-weight: bolder;
+  }
+}
+
+/*Grand écran*/
+
+@media screen and (min-width: 1201px) {
+  .recommended__section {
+    margin: 1rem 7rem;
+    position: static;
+    h3 {
+      color: black;
+      font-family: $primary-font;
+      font-size: 3rem;
+    }
+    .pagination__nav {
+      display: block;
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        li {
+          list-style: none;
+          button {
+            background-color: transparent;
+            border: transparent;
+            font-size: 1rem;
+            font-family: $primary-font;
+            cursor: pointer;
+          }
+          .button__svg__nav {
+            display: block;
+            background: linear-gradient(
+              to right,
+              $primary-color,
+              $terciary-color
+            );
+            padding: 0.2rem;
+            width: 1.7rem;
+            height: 1.7rem;
+            cursor: pointer;
+            border-radius: 5px;
+          }
         }
-        .button__svg__nav {
-          background: linear-gradient(
-            to right,
-            $primary-color,
-            $terciary-color
-          );
-          padding: 0.2rem;
-          width: 1.7rem;
-          height: 1.7rem;
-          cursor: pointer;
-          border-radius: 5px;
+      }
+    }
+    .recommended__carousel {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      .card {
+        width: clamp(24rem, calc(20rem + 2vw), 26rem);
+        height: clamp(32rem, calc(34rem + 2vw), 36rem);
+        cursor: auto;
+        .card__header {
+          width: 100%;
+          img {
+            width: 100%;
+            height: 14rem;
+            display: block;
+            object-fit: cover;
+          }
+        }
+        .card__body {
+          h4 {
+            font-size: 1.9rem;
+          }
+          .tag {
+            font-size: 0.9rem;
+          }
+          padding: 1rem;
+          .recommanded__text {
+            font-size: 1.2rem;
+          }
+
+          .recommanded__text__desktop {
+            display: block;
+            font-size: 1.2rem;
+          }
+          .button__section {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            bottom: -1rem;
+            .button__desktop {
+              display: flex;
+            }
+            .button__showmore {
+              background-color: transparent;
+              border: transparent;
+              width: 9rem;
+              font-size: 1rem;
+              font-family: $primary-font;
+              cursor: pointer;
+            }
+          }
         }
       }
     }
   }
 }
+
+/*La pagination*/
 
 .active {
   color: #025959;

@@ -30,8 +30,9 @@ $color-4: #a0a603;
 }
 .HearderTitle h1 {
   padding-bottom: 10px;
-  font-family: $primary-font;
+  font-family: "Radio Canada", sans-serif;
   font-weight: 400;
+  font-size: 2.2rem;
 }
 .headerInput {
   width: 18rem;
@@ -97,7 +98,7 @@ $color-4: #a0a603;
   width: auto;
   height: 15px;
   padding-right: 5px;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 .linkHeader {
   display: flex;
