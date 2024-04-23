@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap");
+
+$primary-color: #04adbf;
+$second-color: #04bfbf;
+$terciary-color: #025959;
+$color-4: #a0a603;
+$primary-font: "Radio Canada", sans-serif;
+$secondary-font: "Quicksand", sans-serif;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  height: auto;
+  margin: auto;
+}
+
+.section_contact {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+  .container_contact {
+    height: 80%;
+    width: 80%;
+    border-radius: 1rem;
+    align-items: center;
+    box-shadow: 0 0.1rem 2rem #025959;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    .forms {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1rem;
+    }
+  }
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-family: $primary-font;
+  font-size: 1.5rem;
+  width: auto;
+  align-items: center;
+}
+.title3 {
+  font-size: 12px;
+  text-align: center;
+}
+.para {
+  width: 100%;
+  text-align: center;
+}
+.content {
+  font-family: $secondary-font;
+  color: black;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+}
+.select {
+  border: #3d8687 solid;
+  border-radius: 0.5rem;
+  display: flex;
+  height: 4.3vh;
+  width: auto;
+}
+
+.Email {
+  width: auto;
+}
+
+.Message {
+  gap: 1rem;
+  width: auto;
+}
+
+.button {
+  width: 10vw;
+  height: 6vh;
+  border: transparent;
+  border-radius: 0.5rem;
+  background: linear-gradient(to right, $second-color, $color-4);
+  margin-bottom: 0.5rem;
+  font-family: $secondary-font;
+  color: white;
+  cursor: pointer;
+}
+
+.back_formulaire {
+  width: 7vw;
+  height: 5vh;
+  border: transparent;
+  border-radius: 0.5rem;
+  background: linear-gradient(to right, $second-color, $color-4);
+  font-family: $secondary-font;
+  color: white;
+  margin-right: 29rem;
+}
+
+#message {
+  width: 25rem;
+  height: 20vh;
+  border-radius: 0.5rem;
+  border: #3d8687 solid;
+  margin-right: 1rem;
+  padding: 0.8rem;
+}
+
+#email {
+  width: auto;
+  height: 5vh;
+  border: #3d8687 solid;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+}
+
+#lastName {
+  width: auto;
+  height: 5vh;
+  border: #3d8687 solid;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+}
+#firstName {
+  width: auto;
+  height: 5vh;
+  border: #3d8687 solid;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+}
+
+.message-container {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 3rem;
+  margin-top: 1.5rem;
+  width: 80%;
+  text-align: center;
+  font-size: 22px;
+}
+.picture_message {
+  margin-left: 4rem;
+  margin-top: 2rem;
+  width: 80%;
+}
+
+@media screen and (min-width: 700px) {
+  .containers_contact {
+    width: 80%;
+    height: 70%;
+  }
+
+  .button {
+    width: 10vw;
+  }
+  .message-container {
+    display: block;
+    box-sizing: border-box;
+    font-size: 23px;
+  }
+  .picture_message {
+    margin-left: 7rem;
+    margin-top: 2rem;
+    width: 50%;
+  }
+
+  .back_formulaire {
+    margin-right: 35rem;
+  }
+}
