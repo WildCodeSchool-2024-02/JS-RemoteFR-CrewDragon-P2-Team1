@@ -15,7 +15,7 @@ const routes = [
   },
   {
     title: "Contact",
-    path: "/about",
+    path: "/contact",
     href: "#",
     Icon: iconContact,
     IconD: DiconContact,

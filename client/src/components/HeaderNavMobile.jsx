@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/HeaderNavMobile.scss";
 import { useClickAway } from "@uidotdev/usehooks";
 import { useRef, useState } from "react";
@@ -50,7 +51,7 @@ function HeaderNavMobile() {
                             alt="icon"
                             className="iconNav"
                           />
-                          {route.title}
+                          <Link to={route.path}>{route.title}</Link>
                         </span>
                       </a>
                     </motion.li>
