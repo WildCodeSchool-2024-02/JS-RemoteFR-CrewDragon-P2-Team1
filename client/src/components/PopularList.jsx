@@ -4,13 +4,15 @@ import PopularCard from "./PopularCard";
 import "../styles/SectionPopular.scss";
 
 function PopularList({ destinations, selectionManager, manageLikes }) {
-  const [page, setPage] = useState(4);
+  const [page, setPage] = useState(1);
   const recordsPerPage = 3;
 
   const endIndex = page * recordsPerPage;
   const startIndex = endIndex - recordsPerPage;
 
-  const pageDestinations = destinations.slice(startIndex, endIndex);
+  const reversedDestination = destinations ? [...destinations].reverse() : [];
+
+  const pageDestinations = reversedDestination.slice(startIndex, endIndex);
 
   const nPages = Math.ceil(destinations.length / recordsPerPage);
 
