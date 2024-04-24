@@ -1,6 +1,7 @@
 import AboutCard from "./AboutCard";
 import teamMembers from "../data/teamMembers";
 import HeaderNavMobile from "../components/HeaderNavMobile";
+import "../styles/About.scss";
 
 function AboutList() {
   return (

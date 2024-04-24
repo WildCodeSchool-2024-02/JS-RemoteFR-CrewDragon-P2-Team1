@@ -65,13 +65,78 @@ body {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .team-item {
-    width: 100%;
+/*LA RESPONSIVE*/
+
+/* La tablette*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .about-section {
+    .HearderContainer {
+      .HearderTitle {
+        h1 {
+          font-size: 3rem;
+        }
+        p {
+          font-size: 1.8rem;
+        }
+      }
+    }
   }
 }
-@media screen and (max-width: 768px) {
-  .logo {
-    display: none;
+/* Ordinateur*/
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .about-section {
+    .HearderContainer {
+      .HearderTitle {
+        h1 {
+          font-size: 3.5rem;
+        }
+        p {
+          font-size: 2.2rem;
+        }
+      }
+    }
+    .team-section {
+      .team-item {
+        width: clamp(12rem, calc(18rem + 2vw), 20rem);
+        height: auto;
+      }
+    }
+  }
+}
+
+/*Grand écran*/
+
+@media screen and (min-width: 1201px) {
+  .about-section {
+    .HearderContainer {
+      .HearderTitle {
+        h1 {
+          font-size: 3.5rem;
+        }
+        p {
+          font-size: 2.2rem;
+        }
+      }
+    }
+    .team-section {
+      padding: 1.9rem;
+      .team-item {
+        width: clamp(12rem, calc(18rem + 2vw), 20rem);
+        height: auto;
+        .team-title {
+          h3 {
+            font-size: 1.5rem;
+          }
+        }
+        .team-info {
+          p {
+            font-size: 0.9rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
   }
 }
