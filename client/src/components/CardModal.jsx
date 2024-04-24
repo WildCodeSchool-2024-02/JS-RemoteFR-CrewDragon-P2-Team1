@@ -11,6 +11,13 @@ function CardModal({ destination, onClose, manageLikes }) {
   const [exchange, setExchange] = useState([]);
   const [timeZone, setTimeZone] = useState([]);
 
+  const [numberOfHolidaysToDisplay, setNumberOfHolidaysToDisplay] = useState(4);
+  const [displayMoreToggle, setDisplayMoreToggle] = useState(false);
+
+  useEffect(() => {
+    setNumberOfHolidaysToDisplay(displayMoreToggle ? dayOff.length : 4);
+  }, [displayMoreToggle]);
+
   window.scrollTo(0, 0);
 
   const toggleFunction = () => {
@@ -94,17 +101,23 @@ function CardModal({ destination, onClose, manageLikes }) {
       {isLoading ? (
         <p>Chargement</p>
       ) : (
-        <div
-          className="modal-container"
-          onClick={onClose}
-          onKeyDown={(event) => {
-            if (event.key === "Enter" || event.key === "Space") {
-              onClose();
-            }
-          }}
-          role="button"
-          tabIndex={0}
-        >
+        <div className="modal-container">
+          <button
+            type="button"
+            className="button-close"
+            onClick={onClose}
+            name="closebutton"
+            aria-label="Close modal"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="white"
+            >
+              <path d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
           <div className="modal">
             <div className="modal-header">
               <img
@@ -166,10 +179,14 @@ function CardModal({ destination, onClose, manageLikes }) {
                 <p>{destination.Text}</p>
                 <p>{destination.TextDesktop}</p>
               </div>
+              <div className="modal-content-time">
+                <h2 className="modal-section-title"> Time </h2>
+                <p>{timeZone.datetime}</p>
+              </div>
               <div className="modal-content-weather">
-                <h2 className="weather-title">weather {timeZone.datetime}</h2>
+                <h2 className="modal-section-title">Weather</h2>
                 <div className="weather-blocks">
-                  <div className="weather-first-block">
+                  <div className="weather">
                     <img
                       src={`https://openweathermap.org/img/wn/${time?.weather[0].icon}@2x.png`}
                       alt="sun logo"
@@ -180,34 +197,32 @@ function CardModal({ destination, onClose, manageLikes }) {
                     <p>{Math.floor(time?.main.temp - 273.15)} °C</p>
                     <p>{time?.weather[0].description}</p>
                   </div>
-                  <div className="weather-second-block">
-                    <div className="humidity">
-                      <img
-                        src="src/assets/images/water-svgrepo-com.svg"
-                        alt="water drops"
-                        className="meteo-icon"
-                      />
-                      <div className="humidity-info">
-                        <p>{time?.main.humidity} %</p>
-                        <p>Humidity</p>
-                      </div>
+                  <div className="weather">
+                    <img
+                      src="src/assets/images/water-svgrepo-com.svg"
+                      alt="water drops"
+                      className="meteo-icon"
+                    />
+                    <div className="humidity-info">
+                      <p>{time?.main.humidity} %</p>
+                      <p>Humidity</p>
                     </div>
-                    <div className="wind">
-                      <img
-                        src="src/assets/images/weather-wind-svgrepo-com.svg"
-                        alt="wind logo"
-                        className="meteo-icon"
-                      />
-                      <div className="wind-info">
-                        <p>{time?.wind.speed} m/s</p>
-                        <p>Wind speed</p>
-                      </div>
+                  </div>
+                  <div className="weather">
+                    <img
+                      src="src/assets/images/weather-wind-svgrepo-com.svg"
+                      alt="wind logo"
+                      className="meteo-icon"
+                    />
+                    <div className="wind-info">
+                      <p>{time?.wind.speed} m/s</p>
+                      <p>Wind speed</p>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="modal-content-converter">
-                <h2>Currency Converter</h2>
+                <h2 className="modal-section-title">Currency Converter</h2>
                 <div className="converter-text">
                   <p> 1 {destination.Currency} </p>
                   <p> =</p>
@@ -218,16 +233,27 @@ function CardModal({ destination, onClose, manageLikes }) {
                 </div>
               </div>
               <div className="modal-content-holidays">
-                <h2>National Holidays</h2>
+                <h2 className="modal-section-title">National Holidays</h2>
                 <div className="holidays-text">
                   <span>
-                    {dayOff.map((e) => (
+                    {dayOff.slice(0, numberOfHolidaysToDisplay).map((e) => (
                       <div key={e.name}>
                         <p>
                           {e.date} : {e.name} ({e.localName})
                         </p>
                       </div>
                     ))}
+                    <div className="showmore-section">
+                      <button
+                        className="showmore-button"
+                        type="button"
+                        onClick={() => {
+                          setDisplayMoreToggle(!displayMoreToggle);
+                        }}
+                      >
+                        {displayMoreToggle ? "Show less" : "Show more"}
+                      </button>
+                    </div>
                   </span>
                 </div>
               </div>
