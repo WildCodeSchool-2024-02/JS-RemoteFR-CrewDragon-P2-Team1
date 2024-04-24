@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.about-section {
+  .HearderContainer {
+    .headerInput {
+      display: none;
+    }
+    padding-bottom: 2rem;
+  }
+  .team-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .team-item {
+      width: clamp(15rem, calc(22rem + 2vw), 24rem);
+      height: auto;
+      box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+      border-radius: 1rem;
+      background: white;
+      text-align: center;
+      padding: 1rem;
+      margin: 1rem;
+      .team-title {
+        padding: 1rem;
+        h3 {
+          font-size: 1.7rem;
+        }
+        p {
+          color: #025959;
+          font-family: "Radio Canada";
+          font-weight: 700;
+        }
+      }
+      .team-img {
+        width: 9rem;
+        height: 9rem;
+        padding: 0.5rem;
+        border-radius: 50%;
+      }
+      h3 {
+        font-size: 2rem;
+        text-transform: uppercase;
+      }
+      .team-info {
+        font-size: 1rem;
+        .team-icon {
+          display: flex;
+          list-style: none;
+          justify-content: space-around;
+          padding: 1rem 1rem 0;
+        }
+        .team-icon :hover {
+          background-color: linear-gradient(90deg, #04adbf, #04bfbf, #025959);
+          border-radius: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .team-item {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+}
