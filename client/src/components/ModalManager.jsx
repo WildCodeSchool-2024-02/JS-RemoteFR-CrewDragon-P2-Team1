@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import CardModal from "./CardModal";
 
 function ModalManager({ selectionManager, manageLikes }) {
