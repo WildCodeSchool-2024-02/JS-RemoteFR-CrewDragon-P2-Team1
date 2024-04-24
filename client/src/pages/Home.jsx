@@ -399,7 +399,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Nicosie",
     CountryCode: "CY",
-    Currency: "Euro",
+    Currency: "EUR",
   },
   {
     ID: 31,
@@ -425,7 +425,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Berlin",
     CountryCode: "DE",
-    Currency: "Euro",
+    Currency: "EUR",
   },
   {
     ID: 33,
@@ -464,7 +464,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Quito",
     CountryCode: "EC",
-    Currency: "Dollar américain (USD)",
+    Currency: "USD",
   },
   {
     ID: 36,
@@ -477,7 +477,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Tallinn",
     CountryCode: "EE",
-    Currency: "Euro",
+    Currency: "EUR",
   },
   {
     ID: 37,
@@ -502,8 +502,9 @@ const destinations = [
       "Le pays abrite également des sites emblématiques tels que la Sagrada Familia à Barcelone, l'Alhambra à Grenade, et le Palais royal à Madrid. ",
     isFavorite: false,
     Capital: "Madrid",
-    CountryCode: "ES",
-    Currency: "Euro",
+    CountryCode: "es",
+    Currency: "EUR",
+    TimeZone: "Europe/Madrid",
   },
 ];
 
