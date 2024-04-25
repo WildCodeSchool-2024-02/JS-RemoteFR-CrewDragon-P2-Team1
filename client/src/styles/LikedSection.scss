@@ -25,6 +25,7 @@ body {
   h3 {
     font-family: $primary-font;
     font-size: 1.5rem;
+    color: white;
   }
   .recommended__carousel {
     display: flex;
@@ -42,7 +43,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1200px;
-  height: 67vh;
+  height: 60vh;
   margin: 0.8rem 0;
   .card {
     display: flex;
