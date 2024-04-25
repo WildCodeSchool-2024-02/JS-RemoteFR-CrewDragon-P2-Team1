@@ -18,12 +18,13 @@ body {
 }
 
 .section_contact {
-  height: 100vh;
+  height: 115vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: blue;
+  background-color: white;
+
   .container_contact {
     height: 80%;
     width: 80%;
@@ -35,12 +36,15 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 1rem;
+    background-color: white;
+    margin-bottom: 3rem;
+
     .forms {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 1rem;
+      gap: 2rem;
       padding-top: 1rem;
     }
   }
@@ -51,15 +55,18 @@ body {
   font-family: $primary-font;
   font-size: 1.5rem;
   width: auto;
-  align-items: center;
+  text-align: center;
 }
 .title3 {
   font-size: 12px;
   text-align: center;
+  color: #3d8687;
+  font-family: $secondary-font;
 }
 .para {
   width: 100%;
   text-align: center;
+  font-family: $secondary-font;
 }
 .content {
   font-family: $secondary-font;
@@ -68,7 +75,7 @@ body {
 
 .name {
   display: flex;
-  flex-direction: column;
+  gap: 2rem;
 }
 .select {
   border: #3d8687 solid;
@@ -82,11 +89,6 @@ body {
   width: auto;
 }
 
-.Message {
-  gap: 1rem;
-  width: auto;
-}
-
 .button {
   width: 10vw;
   height: 6vh;
@@ -97,6 +99,7 @@ body {
   font-family: $secondary-font;
   color: white;
   cursor: pointer;
+  margin: 1rem;
 }
 
 .back_formulaire {
@@ -105,9 +108,10 @@ body {
   border: transparent;
   border-radius: 0.5rem;
   background: linear-gradient(to right, $second-color, $color-4);
-  font-family: $secondary-font;
+  display: flex;
   color: white;
-  margin-right: 29rem;
+  font-family: $secondary-font;
+  text-align: center;
 }
 
 #message {
@@ -143,28 +147,40 @@ body {
 }
 
 .message-container {
-  display: block;
-  box-sizing: border-box;
-  margin-bottom: 3rem;
-  margin-top: 1.5rem;
-  width: 80%;
+  width: 50%;
   text-align: center;
-  font-size: 22px;
+  font-size: 25px;
 }
 .picture_message {
   margin-left: 4rem;
   margin-top: 2rem;
-  width: 80%;
+  width: 70%;
+}
+.HearderContainer {
+  .headerInput {
+    display: none;
+  }
+  padding-bottom: 4rem;
 }
 
-@media screen and (min-width: 700px) {
+/* téléphone en portrait*/
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .name {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .section_contact {
+    height: 170vh;
+  }
   .containers_contact {
     width: 80%;
     height: 70%;
   }
 
   .button {
-    width: 10vw;
+    width: 50vw;
   }
   .message-container {
     display: block;
@@ -172,12 +188,70 @@ body {
     font-size: 23px;
   }
   .picture_message {
-    margin-left: 7rem;
-    margin-top: 2rem;
-    width: 50%;
+    width: 100%;
+    margin: auto;
+  }
+  #message {
+    width: 70vw;
+  }
+  .message-container {
+    width: 100%;
+    font-size: 15px;
+  }
+  .back_formulaire {
+    margin: auto;
+    width: 10vw;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
+  .name {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .section_contact {
+    height: 145vh;
+  }
+  .containers_contact {
+    width: 80%;
+    height: 70%;
   }
 
+  .button {
+    width: 12vw;
+  }
+  .message-container {
+    width: 100%;
+    font-size: 25px;
+  }
+  .picture_message {
+    margin: auto;
+    width: 100%;
+  }
+  #message {
+    width: 70vw;
+  }
   .back_formulaire {
-    margin-right: 35rem;
+    margin: auto;
+    width: 10vw;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .section_contact {
+    height: 120vh;
+  }
+  .message-container {
+    width: 100%;
+    font-size: 25px;
+  }
+  .picture_message {
+    margin: auto;
+    width: 60%;
+  }
+  .back_formulaire {
+    margin: auto;
+    width: 8vw;
   }
 }
