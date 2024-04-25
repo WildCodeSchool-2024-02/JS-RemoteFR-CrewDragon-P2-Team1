@@ -188,7 +188,7 @@ function CardModal({ destination, onClose, manageLikes }) {
                 <div className="weather-blocks">
                   <div className="weather">
                     <img
-                      src={`https://openweathermap.org/img/wn/${time?.weather[0].icon}@2x.png`}
+                      src={`https://openweathermap.org/img/wn/${time?.weather[0]?.icon}@2x.png`}
                       alt="sun logo"
                       className="meteo-icon"
                     />

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "../styles/Contact.scss";
 import Logo from "../assets/images/logo-couleur.png";
-import HeaderNavMobile from "../components/HeaderNavMobile";
 
 function Contact() {
   const [sexe, setSexe] = useState("");
@@ -31,7 +30,6 @@ function Contact() {
   return (
     <body>
       <section className="section_contact">
-        <HeaderNavMobile />
         <div className="flexbox-contact">
           <div className="container_contact">
             <div>
