@@ -1,12 +1,11 @@
-:root {
-  --color-1: #04adbf;
-  --color-2: #04bfbf;
-  --color-3: #025959;
-  --color-4: #a0a603;
-  --color-5: #f2e0c9;
-  --font-family-1: "Quicksand";
-  --font-family-2: "Radio Canada";
-}
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap");
+
+$primary-color: #04adbf;
+$second-color: #04bfbf;
+$terciary-color: #025959;
+$color-4: #a0a603;
+$primary-font: "Radio Canada", sans-serif;
+$secondary-font: "Quicksand", sans-serif;
 
 /*Les génériques*/
 
@@ -15,6 +14,8 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: $secondary-font;
+  font-weight: 550;
 }
 
 /*Container pour la modale*/
@@ -27,6 +28,9 @@
   left: 0;
   margin: 0;
   z-index: 1000;
+  .button-close {
+    display: none;
+  }
   .modal {
     border-radius: 10px;
     color: black;
@@ -53,6 +57,7 @@
       top: 30vh;
       border-radius: 2rem;
       height: 70vh;
+      width: 100%;
       box-sizing: border-box;
       padding: 1rem 1.5rem;
       overflow-y: auto;
@@ -60,10 +65,18 @@
       .modal-content-header-heart {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 0.5rem;
         .countryH1 {
-          color: var(--color-3);
+          color: $terciary-color;
           font-size: 1.8rem;
+          font-family: $primary-font;
+          gap: 1.5rem;
+          display: flex;
+          img {
+            height: 2rem;
+            width: auto;
+          }
         }
         .button__like {
           background-color: transparent;
@@ -72,45 +85,79 @@
           height: 1.8rem;
         }
       }
+      .modal-content-time {
+        .modal-section-title {
+          color: $terciary-color;
+          font-size: 1.5rem;
+          font-family: $primary-font;
+        }
+        margin: 1rem 0;
+      }
       .modal-content-weather {
+        .modal-section-title {
+          color: $terciary-color;
+          font-size: 1.5rem;
+          font-family: $primary-font;
+        }
         margin: 1rem 0;
         display: flex;
         flex-direction: column;
-        .weather-first-block {
+        .weather-blocks {
           display: flex;
-          flex-direction: column;
-          align-items: center;
-          .meteo-icon {
-            width: 50px;
-            height: auto;
-          }
-        }
-        .weather-second-block {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
           justify-content: space-around;
-          gap: 2rem;
-          .meteo-icon {
-            width: 50px;
-            height: auto;
+          .weather {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            .meteo-icon {
+              width: 50px;
+              height: auto;
+            }
           }
         }
       }
-      .modal-content-converter {
-        margin: 1rem 0;
-        .converter-text {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          margin: 0.5rem 0;
-        }
+    }
+    .modal-content-converter {
+      margin: 1rem 0;
+      .modal-section-title {
+        color: $terciary-color;
+        font-size: 1.5rem;
+        font-family: $primary-font;
       }
+      .converter-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0.5rem 0;
+      }
+    }
 
-      .modal-content-holidays {
-        margin: 1rem 0;
-        .holidays-text {
-          margin: 0.5rem 0;
+    .modal-content-holidays {
+      margin: 1rem 0;
+      .modal-section-title {
+        color: $terciary-color;
+        font-size: 1.5rem;
+        font-family: $primary-font;
+      }
+      .holidays-text {
+        margin: 0.5rem 0;
+        .showmore-section {
+          width: 100%;
+          text-align: center;
+          padding: 1rem;
+          .showmore-button {
+            border: none;
+            padding: 0.7rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            background: linear-gradient(
+              to right,
+              $second-color,
+              $terciary-color
+            );
+            color: #fafafa;
+          }
         }
       }
     }
@@ -164,7 +211,7 @@
       .modal {
         /*Header de la modale*/
         .modal-header {
-          height: 60vh;
+          height: 70vh;
         }
         /*Body de la modale*/
         .modal-content {
@@ -195,11 +242,129 @@
   }
 }
 
-@media screen and (min-width: 992px) {
+/* Ordinateur*/
+@media screen and (min-width: 992px) and (max-width: 1200px) {
   .modal-container {
-    background: linear-gradient(to right, #dee5e7, var(--color-2));
+    background: linear-gradient(to right, #ffffff, #83bdbd);
     padding: 10vh 5vw 12vh;
+    .button-close {
+      display: block;
+      position: absolute;
+      top: 4rem;
+      right: 2.5rem;
+      width: 3.5rem;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(to right, $second-color, $terciary-color);
+    }
+    .modal {
+      display: flex;
+      box-shadow: 0 rgba(0, 0, 0, 0.5);
+      .modal-header {
+        height: 80vh;
+        width: 45vw;
+        .arrow {
+          display: none;
+        }
+        .modal-image {
+          height: 100%;
+          width: 100%;
+          border-radius: 2rem 0 0 2rem;
+        }
+      }
+      .modal-content {
+        position: static;
+        height: 80vh;
+        width: 60vw;
+        border-radius: 0 2rem 2rem 0;
+        box-sizing: border-box;
 
+        p {
+          font-size: 1.2rem;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        .modal-content-header-heart {
+          .countryH1 {
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+          }
+          .button__like {
+            height: 3rem;
+          }
+        }
+
+        .modal-content-time {
+          box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+          border-radius: 1rem;
+          padding: 10px;
+          margin: 2rem 0 2rem;
+        }
+
+        .modal-content-weather {
+          box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+          border-radius: 1rem;
+          padding: 10px;
+          margin: 2rem 0 2rem;
+
+          .weather-title {
+            display: flex;
+            align-self: flex-start;
+            margin-top: 15px;
+          }
+
+          .weather-blocks {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+          }
+        }
+        .modal-content-converter {
+          box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+          border-radius: 1rem;
+          padding: 10px;
+          margin-bottom: 2rem;
+        }
+
+        .modal-content-holidays {
+          box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+          border-radius: 1rem;
+          padding: 10px;
+          margin-top: 15px;
+        }
+
+        .currency-title {
+          margin-top: 15px;
+        }
+
+        .holidays-title {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
+
+/*Grand écran*/
+
+@media screen and (min-width: 1201px) {
+  .modal-container {
+    padding: 10vh 5vw 12vh;
+    background: linear-gradient(to right, #ffffff, #83bdbd);
+    .button-close {
+      display: block;
+      position: absolute;
+      top: 4rem;
+      right: 4rem;
+      width: 3.5rem;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(to right, $second-color, $terciary-color);
+    }
     .modal {
       display: flex;
 
@@ -221,11 +386,11 @@
         position: static;
         height: 80vh;
         width: 60vw;
-        padding: 3rem;
         border-radius: 0 2rem 2rem 0;
+        box-sizing: border-box;
 
         p {
-          font-size: 1.6rem;
+          font-size: 1.3rem;
         }
 
         h2 {
@@ -235,10 +400,19 @@
         .modal-content-header-heart {
           .countryH1 {
             font-size: 3rem;
+            display: flex;
+            align-items: center;
           }
           .button__like {
             height: 3rem;
           }
+        }
+
+        .modal-content-time {
+          box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+          border-radius: 1rem;
+          padding: 10px;
+          margin: 2rem 0 2rem;
         }
 
         .modal-content-weather {
