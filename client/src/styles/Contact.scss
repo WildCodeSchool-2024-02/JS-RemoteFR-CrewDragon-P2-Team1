@@ -42,6 +42,7 @@ body {
     flex-direction: column;
     padding: 1rem;
     background-color: white;
+    width: 80%;
 
     .title3 {
       font-size: 1rem;
@@ -81,6 +82,7 @@ body {
 
       .name {
         display: flex;
+        flex-direction: column;
         gap: 2rem;
         width: 100%;
 
@@ -141,115 +143,105 @@ body {
   }
 }
 
-.back_formulaire {
-  width: 7vw;
-  height: 5vh;
-  border: transparent;
-  border-radius: 0.5rem;
-  background: linear-gradient(to right, $second-color, $color-4);
-  display: flex;
-  color: white;
-  font-family: $secondary-font;
-  text-align: center;
-}
-
 .message-container {
-  width: 50%;
+  p {
+    font-size: 1rem;
+  }
   text-align: center;
   font-size: 25px;
-}
-.picture_message {
-  margin-left: 4rem;
-  margin-top: 2rem;
-  width: 70%;
+  height: 64vh;
+  box-sizing: border-box;
+  padding: 1rem;
+  .picture_message {
+    width: 80%;
+  }
+  .back_formulaire {
+    border: transparent;
+    border-radius: 0.2rem;
+    background: linear-gradient(to right, $second-color, $color-4);
+    font-size: 1rem;
+    color: white;
+    font-family: $secondary-font;
+    text-align: center;
+    width: 35%;
+    height: 8%;
+  }
 }
 
 /* téléphone en portrait*/
-@media screen and (min-width: 300px) and (max-width: 500px) {
-  .name {
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .HearderContainer {
+    .HearderTitle {
+      h1 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.8rem;
+      }
+    }
+  }
+  .message-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-  }
-
-  .containers_contact {
-    width: 80%;
-    height: 70%;
-  }
-
-  .button {
-    width: 50vw;
-  }
-  .message-container {
-    display: block;
-    box-sizing: border-box;
-    font-size: 23px;
-  }
-  .picture_message {
-    width: 100%;
-    margin: auto;
-  }
-  #message {
-    width: 70vw;
-  }
-  .message-container {
-    width: 100%;
-    font-size: 15px;
-  }
-  .back_formulaire {
-    margin: auto;
-    width: 10vw;
+    align-items: center;
+    .picture_message {
+      width: 68%;
+    }
   }
 }
 
-@media screen and (min-width: 500px) and (max-width: 768px) {
-  .name {
+/* La tablette*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .message-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-  }
-  .section_contact {
-    height: 145vh;
-  }
-  .containers_contact {
-    width: 80%;
-    height: 70%;
-  }
-
-  .button {
-    width: 12vw;
-  }
-  .message-container {
-    width: 100%;
-    font-size: 25px;
-  }
-  .picture_message {
-    margin: auto;
-    width: 100%;
-  }
-  #message {
-    width: 70vw;
-  }
-  .back_formulaire {
-    margin: auto;
-    width: 10vw;
+    align-items: center;
+    .picture_message {
+      width: 50%;
+    }
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1200px) {
-  .section_contact {
-    height: 120vh;
+/* Ordinateur*/
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .HearderContainer {
+    .HearderTitle {
+      h1 {
+        font-size: 3.5rem;
+      }
+      p {
+        font-size: 2.2rem;
+      }
+    }
   }
   .message-container {
-    width: 100%;
-    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .picture_message {
+      width: 45%;
+    }
   }
-  .picture_message {
-    margin: auto;
-    width: 60%;
+}
+
+@media screen and (min-width: 1201px) {
+  .HearderContainer {
+    .HearderTitle {
+      h1 {
+        font-size: 3.5rem;
+      }
+      p {
+        font-size: 2.2rem;
+      }
+    }
   }
-  .back_formulaire {
-    margin: auto;
-    width: 8vw;
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .picture_message {
+      width: 30%;
+    }
   }
 }

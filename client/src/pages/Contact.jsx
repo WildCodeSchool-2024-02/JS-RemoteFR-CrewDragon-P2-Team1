@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/Contact.scss";
-import Logo from "../assets/images/Logo.png";
+import Logo from "../assets/images/logo-couleur.png";
 import HeaderNavMobile from "../components/HeaderNavMobile";
 
 function Contact() {
@@ -15,7 +15,7 @@ function Contact() {
     e.preventDefault();
     // Formate le message
     if (sexe && nom && prenom && messages && email) {
-      const messageContent = `Bonjour,  ${nom} ${prenom} Nous avons bien reçu votre message. l'équipe Globe Guide traitera votre demande dans les plus brefs délais. Si vous avez d'autres questions n'hésitez pas à nous recontacter.`;
+      const messageContent = `Bonjour,  ${nom} ${prenom}. Nous avons bien reçu votre message. L'équipe Globe Guide traitera votre demande dans les plus brefs délais. Si vous avez d'autres questions n'hésitez pas à nous recontacter.`;
       setMessage(messageContent);
       setMessageVisible(true);
     } else {
