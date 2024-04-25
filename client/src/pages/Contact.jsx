@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/Contact.scss";
 import Logo from "../assets/images/Logo.png";
+import HeaderNavMobile from "../components/HeaderNavMobile";
 
 function Contact() {
   const [sexe, setSexe] = useState("");
@@ -13,9 +14,13 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Formate le message
-    const messageContent = `Bonjour  ${nom} ${prenom} Nous avons bien reçu votre message. l'équipe Globe Guide traitera votre demande dans les plus brefs délais. Si vous avez d'autres questions n'hésitez pas à nous recontacter.`;
-    setMessage(messageContent);
-    setMessageVisible(true);
+    if (sexe && nom && prenom && messages && email) {
+      const messageContent = `Bonjour,  ${nom} ${prenom} Nous avons bien reçu votre message. l'équipe Globe Guide traitera votre demande dans les plus brefs délais. Si vous avez d'autres questions n'hésitez pas à nous recontacter.`;
+      setMessage(messageContent);
+      setMessageVisible(true);
+    } else {
+      alert("Veuillez remplir tous les champs obligatoires.");
+    }
   };
 
   const handleReturnToForm = () => {
@@ -25,7 +30,9 @@ function Contact() {
 
   return (
     <body>
-      {" "}
+      <header>
+        <HeaderNavMobile />
+      </header>{" "}
       <section className="section_contact">
         <div className="container_contact">
           <div>
@@ -113,14 +120,14 @@ function Contact() {
             </form>
           ) : (
             <div className="message-container">
-              <div className="message">{messages}</div>
+              <p>{messages}</p>
               <img src={Logo} alt="logo" className="picture_message" />
               <button
                 type="submit"
                 onClick={handleReturnToForm}
                 className="back_formulaire"
               >
-                🔙
+                Back
               </button>
             </div>
           )}
