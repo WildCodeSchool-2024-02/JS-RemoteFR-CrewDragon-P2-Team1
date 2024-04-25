@@ -29,7 +29,7 @@ function CardModal({ destination, onClose, manageLikes }) {
    */
   const getTime = () => {
     axios
-      .get(`http://worldtimeapi.org/api/timezone/${destination.TimeZone}`)
+      .get(`https://worldtimeapi.org/api/timezone/${destination.TimeZone}`)
       .then((response) => {
         setTimeZone(response.data);
       })
@@ -60,7 +60,7 @@ function CardModal({ destination, onClose, manageLikes }) {
   const getWeather = (KEYWEATHER) => {
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${destination.Capital}&appid=${KEYWEATHER}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${destination.Capital}&appid=${KEYWEATHER}`
       )
       .then((response) => {
         setTime(response.data);
