@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/HeaderNavDesktop.scss";
 import routes from "../routes";
 import arrow from "../assets/images/fleche.png";
@@ -8,7 +9,9 @@ function HeaderNavDesktop() {
       <span className="DHearderNav">
         {routes.map((route) => (
           <a className="" href={route.href} key={route.title}>
-            <span className="DlinkHeader">{route.title}</span>
+            <span className="DlinkHeader">
+              <Link to={route.path}>{route.title}</Link>
+            </span>
           </a>
         ))}
       </span>

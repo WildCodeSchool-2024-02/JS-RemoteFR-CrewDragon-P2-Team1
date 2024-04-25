@@ -6,6 +6,7 @@
   padding: 20px;
   text-align: center;
   position: absolute;
+  margin-top: auto;
   .footer-content {
     font-family: "Quicksand", sans-serif;
     height: 100%;
@@ -39,7 +40,27 @@
 
 /* Ordinateur*/
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .footer {
+    height: 12vh;
+    margin-bottom: 0;
+    .footer-content {
+      .footer__text {
+        font-size: 1.3rem;
+      }
+    }
+  }
+  .logo {
+    display: block;
+    width: 7rem;
+    position: absolute;
+    right: 40px;
+  }
+}
+
+/*Grand écran*/
+
+@media screen and (min-width: 1201px) {
   .footer {
     height: 10vh;
     margin-bottom: 0;

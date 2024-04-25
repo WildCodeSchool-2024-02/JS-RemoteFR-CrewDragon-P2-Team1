@@ -28,11 +28,9 @@ h3 {
 /*La section popular et ses cartes*/
 
 .popular__section {
-  margin: 0rem 2rem 2rem;
+  margin: 0rem 2rem 0rem;
   box-sizing: border-box;
   position: relative;
-  top: -100px;
-  margin-bottom: -90px;
   .PopularContainer {
     display: flex;
     .CardsContainer {
@@ -44,6 +42,7 @@ h3 {
       box-sizing: border-box;
       display: flex;
       align-items: center;
+      cursor: pointer;
       .PopularLeft {
         width: 55%;
         margin-left: 0.5rem;
@@ -66,7 +65,10 @@ h3 {
         flex-direction: column;
         justify-content: space-between;
         h4 {
-          font-size: 1rem;
+          font-size: 1.1rem;
+          font-family: $primary-font;
+          color: $terciary-color;
+          font-weight: 700;
         }
         .PopularCity {
           display: flex;
@@ -84,9 +86,7 @@ h3 {
             background-color: transparent;
             border: transparent;
             cursor: pointer;
-            .like {
-              height: 1.8rem;
-            }
+            height: 2rem;
           }
         }
       }
@@ -193,9 +193,78 @@ h3 {
 
 /* Ordinateur*/
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  body {
+    .popular__section {
+      padding: 1rem;
+      margin: 1rem;
+      position: static;
+      h3 {
+        color: black;
+        font-family: $primary-font;
+        font-size: 2rem;
+      }
+      .popular_list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .button__svg__nav {
+        display: block;
+        background: linear-gradient(to right, $primary-color, $terciary-color);
+        padding: 0.2rem;
+        width: 1.7rem;
+        height: 1.7rem;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .PopularContainer {
+        .CardsContainer {
+          height: 8rem;
+          width: 18rem;
+          .PopularLeft {
+            width: 55%;
+            margin-left: 0.9rem;
+            .ImgPays {
+              border-radius: 0.5rem;
+            }
+          }
+          .desc {
+            padding: 1rem 0.2rem;
+            h4 {
+              font-size: 1.2 rem;
+            }
+            .PopularCity {
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+            }
+            .map {
+              height: 1.7rem;
+            }
+            .PopularLike {
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+            }
+
+            .PopularText {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*Grand écran*/
+
+@media screen and (min-width: 1201px) {
   .popular__section {
     margin: 1rem 7rem;
+    padding: 2rem;
     position: static;
     h3 {
       color: black;
@@ -207,6 +276,7 @@ h3 {
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-around;
+      gap: 2rem;
     }
     .button__svg__nav {
       display: block;
@@ -220,6 +290,7 @@ h3 {
     .PopularContainer {
       .CardsContainer {
         height: 13rem;
+        width: 30rem;
         .PopularLeft {
           width: 55%;
           margin-left: 0.9rem;
@@ -227,28 +298,28 @@ h3 {
             border-radius: 0.5rem;
           }
         }
-      }
-      .desc {
-        padding: 1rem 0rem 1rem 2rem;
-        h4 {
-          font-size: 1.9rem;
-        }
-        .PopularCity {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-        }
-        .map {
-          height: 1.7rem;
-        }
-        .PopularLike {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-        }
+        .desc {
+          padding: 1rem 0rem 1rem 2rem;
+          h4 {
+            font-size: 1.3rem;
+          }
+          .PopularCity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+          }
+          .map {
+            height: 1.7rem;
+          }
+          .PopularLike {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+          }
 
-        .PopularText {
-          font-size: 1.2rem;
+          .PopularText {
+            font-size: 1.2rem;
+          }
         }
       }
     }

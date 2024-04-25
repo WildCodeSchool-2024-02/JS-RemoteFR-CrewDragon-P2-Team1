@@ -3,14 +3,16 @@ import PropTypes from "prop-types";
 import PopularCard from "./PopularCard";
 import "../styles/SectionPopular.scss";
 
-function PopularList({ destinations, selectionManager }) {
+function PopularList({ destinations, selectionManager, manageLikes }) {
   const [page, setPage] = useState(1);
   const recordsPerPage = 3;
 
   const endIndex = page * recordsPerPage;
   const startIndex = endIndex - recordsPerPage;
 
-  const pageDestinations = destinations.slice(startIndex, endIndex);
+  const reversedDestination = destinations ? [...destinations].reverse() : [];
+
+  const pageDestinations = reversedDestination.slice(startIndex, endIndex);
 
   const nPages = Math.ceil(destinations.length / recordsPerPage);
 
@@ -45,13 +47,9 @@ function PopularList({ destinations, selectionManager }) {
         {pageDestinations.map((destination) => (
           <PopularCard
             key={destination.ID}
-            src={destination.Src}
-            name={destination.Name}
-            city={destination.Capital}
-            text={destination.Text}
-            Isfavorite={destination.Isfavorite}
             selectionManager={selectionManager}
             destination={destination}
+            manageLikes={manageLikes}
           />
         ))}
         <svg
@@ -75,10 +73,27 @@ function PopularList({ destinations, selectionManager }) {
 }
 
 PopularList.propTypes = {
-  destinations: PropTypes.arrayOf.isRequired,
+  destinations: PropTypes.arrayOf(
+    PropTypes.shape({
+      ID: PropTypes.number.isRequired,
+      Name: PropTypes.string.isRequired,
+      Src: PropTypes.string.isRequired,
+      Label: PropTypes.string.isRequired,
+      Text: PropTypes.string.isRequired,
+      TextDesktop: PropTypes.string.isRequired,
+      isFavorite: PropTypes.bool.isRequired,
+      Capital: PropTypes.string.isRequired,
+      CountryCode: PropTypes.string.isRequired,
+      Currency: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
   selectionManager: PropTypes.shape({
     selectedCountry: PropTypes.string,
     manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
+  manageLikes: PropTypes.shape({
+    likeDestination: PropTypes.instanceOf(Map).isRequired,
+    addOrRemoveDestination: PropTypes.func.isRequired,
   }).isRequired,
 };
 

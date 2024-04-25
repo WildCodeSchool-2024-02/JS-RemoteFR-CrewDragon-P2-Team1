@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap");
+
+$primary-color: #04adbf;
+$second-color: #04bfbf;
+$terciary-color: #025959;
+$color-4: #a0a603;
+$primary-font: "Radio Canada", sans-serif;
+$secondary-font: "Quicksand", sans-serif;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  height: auto;
+  margin: auto;
+}
+
+.section_contact {
+  .HearderContainer {
+    .headerInput {
+      display: none;
+    }
+    padding-bottom: 2rem;
+  }
+  .flexbox-contact {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  }
+
+  .container_contact {
+    margin: 2rem;
+    border-radius: 1rem;
+    align-items: center;
+    box-shadow: 0 0.1rem 2rem #025959;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: white;
+    width: 80%;
+
+    .title3 {
+      font-size: 1rem;
+      text-align: center;
+      color: #025959;
+      font-family: $secondary-font;
+      font-weight: 600;
+    }
+    .title {
+      margin-bottom: 1rem;
+      font-family: $primary-font;
+      font-size: 1.5rem;
+      width: auto;
+      text-align: center;
+    }
+    .para {
+      width: 100%;
+      text-align: center;
+      font-family: $secondary-font;
+    }
+
+    .forms {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding-top: 1rem;
+
+      .select {
+        border: #025959 solid;
+        border-radius: 0.5rem;
+        display: flex;
+        height: 5vh;
+        width: 100%;
+      }
+
+      .name {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+
+        #lastName {
+          width: auto;
+          height: 5vh;
+          border-radius: 0.5rem;
+          padding: 0.8rem;
+        }
+
+        #firstName {
+          width: auto;
+          height: 5vh;
+          border: #025959 solid;
+          border-radius: 0.5rem;
+          padding: 0.8rem;
+        }
+
+        .content {
+          font-family: $secondary-font;
+          color: black;
+          border: #025959 solid;
+        }
+      }
+
+      .Email {
+        width: 100%;
+        #email {
+          width: auto;
+          height: 5vh;
+          border-radius: 0.5rem;
+          padding: 0.8rem;
+          border: #025959 solid;
+          width: 100%;
+        }
+      }
+
+      .Message {
+        #message {
+          border-radius: 0.5rem;
+          padding: 0.8rem;
+          border: #025959 solid;
+        }
+      }
+      .button {
+        width: auto;
+        height: 6vh;
+        border: transparent;
+        border-radius: 0.5rem;
+        background: linear-gradient(to right, $second-color, $color-4);
+        font-family: $secondary-font;
+        color: white;
+        cursor: pointer;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.message-container {
+  p {
+    font-size: 1rem;
+  }
+  text-align: center;
+  font-size: 25px;
+  height: 64vh;
+  box-sizing: border-box;
+  padding: 1rem;
+  .picture_message {
+    width: 80%;
+  }
+  .back_formulaire {
+    border: transparent;
+    border-radius: 0.2rem;
+    background: linear-gradient(to right, $second-color, $color-4);
+    font-size: 1rem;
+    color: white;
+    font-family: $secondary-font;
+    text-align: center;
+    width: 35%;
+    height: 8%;
+  }
+}
+
+/* téléphone en portrait*/
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .HearderContainer {
+    .HearderTitle {
+      h1 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.8rem;
+      }
+    }
+  }
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .picture_message {
+      width: 68%;
+    }
+  }
+}
+
+/* La tablette*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .picture_message {
+      width: 50%;
+    }
+  }
+}
+
+/* Ordinateur*/
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .HearderContainer {
+    .HearderTitle {
+      h1 {
+        font-size: 3.5rem;
+      }
+      p {
+        font-size: 2.2rem;
+      }
+    }
+  }
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .picture_message {
+      width: 45%;
+    }
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .HearderContainer {
+    .HearderTitle {
+      h1 {
+        font-size: 3.5rem;
+      }
+      p {
+        font-size: 2.2rem;
+      }
+    }
+  }
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .picture_message {
+      width: 30%;
+    }
+  }
+}
