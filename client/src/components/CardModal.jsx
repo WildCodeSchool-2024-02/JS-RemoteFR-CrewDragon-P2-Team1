@@ -167,7 +167,9 @@ function CardModal({ destination, onClose, manageLikes }) {
                 <p>{destination.TextDesktop}</p>
               </div>
               <div className="modal-content-weather">
-                <h2 className="weather-title">weather {timeZone.datetime}</h2>
+                <h2 className="weather-title">
+                  weather {timeZone.datetime.split("")}
+                </h2>
                 <div className="weather-blocks">
                   <div className="weather-first-block">
                     <img
