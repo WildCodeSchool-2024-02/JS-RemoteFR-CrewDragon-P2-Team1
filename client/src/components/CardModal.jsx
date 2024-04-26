@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/CardModal.scss";
+import water from "../assets/images/water.svg";
+import wind from "../assets/images/wind.svg";
 
 function CardModal({ destination, onClose, manageLikes }) {
   const [isWeatherLoading, setIsWeatherLoading] = useState(true);
@@ -208,22 +210,14 @@ function CardModal({ destination, onClose, manageLikes }) {
                     <p>{time?.weather[0].description}</p>
                   </div>
                   <div className="weather">
-                    <img
-                      src="src/assets/images/water-svgrepo-com.svg"
-                      alt="water drops"
-                      className="meteo-icon"
-                    />
+                    <img src={water} alt="water drops" className="meteo-icon" />
                     <div className="humidity-info">
                       <p>{time?.main.humidity} %</p>
                       <p>Humidity</p>
                     </div>
                   </div>
                   <div className="weather">
-                    <img
-                      src="src/assets/images/weather-wind-svgrepo-com.svg"
-                      alt="wind logo"
-                      className="meteo-icon"
-                    />
+                    <img src={wind} alt="wind logo" className="meteo-icon" />
                     <div className="wind-info">
                       <p>{time?.wind.speed} m/s</p>
                       <p>Wind speed</p>
