@@ -6,10 +6,12 @@ import AboutList from "./pages/AboutList";
 import Contact from "./pages/Contact";
 import CountrySelectionManager from "./components/CountrySelectionManager";
 import destinations from "./data/destinations";
+import ManageLikes from "./components/LikeDestinationsManagers";
 
 function Main() {
+  // create managers
   const selectionManager = new CountrySelectionManager();
-
+  const manageLikes = new ManageLikes();
   const router = createBrowserRouter([
     {
       element: (
@@ -20,6 +22,7 @@ function Main() {
           path: "/",
           element: (
             <Home
+              manageLikes={manageLikes}
               selectionManager={selectionManager}
               destinations={destinations}
             />

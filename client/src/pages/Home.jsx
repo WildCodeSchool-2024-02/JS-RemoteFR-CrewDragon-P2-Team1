@@ -3,11 +3,8 @@ import RecommandedList from "../components/RecommandedList";
 import PopularList from "../components/PopularList";
 import ModalManager from "../components/ModalManager";
 import LikeSection from "../components/LikeSection";
-import ManageLikes from "../components/LikeDestinationsManagers";
 
-function Home({ selectionManager, destinations }) {
-  const manageLikes = new ManageLikes();
-
+function Home({ selectionManager, destinations, manageLikes }) {
   return (
     <div>
       <ModalManager
@@ -37,6 +34,10 @@ Home.propTypes = {
   selectionManager: PropTypes.shape({
     selectedCountry: PropTypes.string,
     manageCountrySelection: PropTypes.func.isRequired,
+  }).isRequired,
+  manageLikes: PropTypes.shape({
+    likeDestination: PropTypes.instanceOf(Map).isRequired,
+    addOrRemoveDestination: PropTypes.func.isRequired,
   }).isRequired,
 };
 
