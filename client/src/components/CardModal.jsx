@@ -13,7 +13,6 @@ function CardModal({ destination, onClose, manageLikes }) {
   const [time, setTime] = useState([]);
   const [dayOff, setDayOff] = useState([]);
   const [exchange, setExchange] = useState([]);
-  const [timeZone, setTimeZone] = useState([]);
 
   const [numberOfHolidaysToDisplay, setNumberOfHolidaysToDisplay] = useState(4);
   const [displayMoreToggle, setDisplayMoreToggle] = useState(false);
@@ -26,20 +25,6 @@ function CardModal({ destination, onClose, manageLikes }) {
 
   const toggleFunction = () => {
     manageLikes.addOrRemoveDestination(destination);
-  };
-
-  /**
-   * API TIMEZONE
-   */
-  const getTime = () => {
-    axios
-      .get(`https://worldtimeapi.org/api/timezone/${destination.TimeZone}`)
-      .then((response) => {
-        setTimeZone(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   };
 
   /**
@@ -102,7 +87,6 @@ function CardModal({ destination, onClose, manageLikes }) {
   useEffect(() => {
     const KEYWEATHER = "a64b288f12ac5afada93e8e8c413d270";
     const KEYCHANGE = "a9ac5f398a1be13e9f3d8995";
-    getTime();
     getPublicHolidays();
     getWeather(KEYWEATHER);
     getExchange(KEYCHANGE);
@@ -190,10 +174,6 @@ function CardModal({ destination, onClose, manageLikes }) {
                 </div>
                 <p>{destination.Text}</p>
                 <p>{destination.TextDesktop}</p>
-              </div>
-              <div className="modal-content-time">
-                <h2 className="modal-section-title"> Time </h2>
-                <p>{timeZone.datetime}</p>
               </div>
               <div className="modal-content-weather">
                 <h2 className="modal-section-title">Weather</h2>
