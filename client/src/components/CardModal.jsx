@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/CardModal.scss";
+import water from "../assets/images/water.svg";
+import wind from "../assets/images/wind.svg";
 
 function CardModal({ destination, onClose, manageLikes }) {
   const [isWeatherLoading, setIsWeatherLoading] = useState(true);
@@ -11,7 +13,6 @@ function CardModal({ destination, onClose, manageLikes }) {
   const [time, setTime] = useState([]);
   const [dayOff, setDayOff] = useState([]);
   const [exchange, setExchange] = useState([]);
-  const [timeZone, setTimeZone] = useState([]);
 
   const [numberOfHolidaysToDisplay, setNumberOfHolidaysToDisplay] = useState(4);
   const [displayMoreToggle, setDisplayMoreToggle] = useState(false);
@@ -24,20 +25,6 @@ function CardModal({ destination, onClose, manageLikes }) {
 
   const toggleFunction = () => {
     manageLikes.addOrRemoveDestination(destination);
-  };
-
-  /**
-   * API TIMEZONE
-   */
-  const getTime = () => {
-    axios
-      .get(`https://worldtimeapi.org/api/timezone/${destination.TimeZone}`)
-      .then((response) => {
-        setTimeZone(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   };
 
   /**
@@ -100,7 +87,6 @@ function CardModal({ destination, onClose, manageLikes }) {
   useEffect(() => {
     const KEYWEATHER = "a64b288f12ac5afada93e8e8c413d270";
     const KEYCHANGE = "a9ac5f398a1be13e9f3d8995";
-    getTime();
     getPublicHolidays();
     getWeather(KEYWEATHER);
     getExchange(KEYCHANGE);
@@ -189,10 +175,6 @@ function CardModal({ destination, onClose, manageLikes }) {
                 <p>{destination.Text}</p>
                 <p>{destination.TextDesktop}</p>
               </div>
-              <div className="modal-content-time">
-                <h2 className="modal-section-title"> Time </h2>
-                <p>{timeZone.datetime}</p>
-              </div>
               <div className="modal-content-weather">
                 <h2 className="modal-section-title">Weather</h2>
                 <div className="weather-blocks">
@@ -208,22 +190,14 @@ function CardModal({ destination, onClose, manageLikes }) {
                     <p>{time?.weather[0].description}</p>
                   </div>
                   <div className="weather">
-                    <img
-                      src="src/assets/images/water-svgrepo-com.svg"
-                      alt="water drops"
-                      className="meteo-icon"
-                    />
+                    <img src={water} alt="water drops" className="meteo-icon" />
                     <div className="humidity-info">
                       <p>{time?.main.humidity} %</p>
                       <p>Humidity</p>
                     </div>
                   </div>
                   <div className="weather">
-                    <img
-                      src="src/assets/images/weather-wind-svgrepo-com.svg"
-                      alt="wind logo"
-                      className="meteo-icon"
-                    />
+                    <img src={wind} alt="wind logo" className="meteo-icon" />
                     <div className="wind-info">
                       <p>{time?.wind.speed} m/s</p>
                       <p>Wind speed</p>
