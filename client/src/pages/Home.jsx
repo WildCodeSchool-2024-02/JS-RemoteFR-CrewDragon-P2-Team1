@@ -5,8 +5,8 @@ import ModalManager from "../components/ModalManager";
 import LikeSection from "../components/LikeSection";
 import ManageLikes from "../components/LikeDestinationsManagers";
 
+
 function Home({ selectionManager, destinations }) {
-  const manageLikes = new ManageLikes();
 
   return (
     <div>
