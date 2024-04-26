@@ -1,12 +1,10 @@
 import AboutCard from "./AboutCard";
 import teamMembers from "../data/teamMembers";
-import HeaderNavMobile from "../components/HeaderNavMobile";
 import "../styles/About.scss";
 
 function AboutList() {
   return (
     <div className="about-section">
-      <HeaderNavMobile />
       <div className="team-section">
         {teamMembers.map((teamMember) => (
           <AboutCard key={teamMember.id} teamMember={teamMember} />

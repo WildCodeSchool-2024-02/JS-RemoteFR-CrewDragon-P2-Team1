@@ -4,7 +4,9 @@ import axios from "axios";
 import "../styles/CardModal.scss";
 
 function CardModal({ destination, onClose, manageLikes }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isWeatherLoading, setIsWeatherLoading] = useState(true);
+  const [isExhangeLoading, setIsExchangeLoading] = useState(true);
+  const [isHolidaysLoading, setIsHolidaysLoading] = useState(true);
 
   const [time, setTime] = useState([]);
   const [dayOff, setDayOff] = useState([]);
@@ -29,7 +31,7 @@ function CardModal({ destination, onClose, manageLikes }) {
    */
   const getTime = () => {
     axios
-      .get(`http://worldtimeapi.org/api/timezone/${destination.TimeZone}`)
+      .get(`https://worldtimeapi.org/api/timezone/${destination.TimeZone}`)
       .then((response) => {
         setTimeZone(response.data);
       })
@@ -49,6 +51,9 @@ function CardModal({ destination, onClose, manageLikes }) {
       .then((response) => {
         setDayOff(response.data);
       })
+      .finally(() => {
+        setIsHolidaysLoading(false);
+      })
       .catch((error) => {
         console.error(error);
       });
@@ -57,13 +62,16 @@ function CardModal({ destination, onClose, manageLikes }) {
   /**
    * API WEATHER
    */
-  const getWeather = (KEYWEATHER) => {
-    axios
+  const getWeather = async (KEYWEATHER) => {
+    await axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${destination.Capital}&appid=${KEYWEATHER}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${destination.Capital}&appid=${KEYWEATHER}`
       )
       .then((response) => {
         setTime(response.data);
+      })
+      .finally(() => {
+        setIsWeatherLoading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -80,7 +88,9 @@ function CardModal({ destination, onClose, manageLikes }) {
       )
       .then((response) => {
         setExchange(response.data);
-        setIsLoading(false);
+      })
+      .finally(() => {
+        setIsExchangeLoading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -98,7 +108,7 @@ function CardModal({ destination, onClose, manageLikes }) {
 
   return (
     <div>
-      {isLoading ? (
+      {isWeatherLoading || isExhangeLoading || isHolidaysLoading ? (
         <p>Chargement</p>
       ) : (
         <div className="modal-container">
@@ -188,7 +198,7 @@ function CardModal({ destination, onClose, manageLikes }) {
                 <div className="weather-blocks">
                   <div className="weather">
                     <img
-                      src={`https://openweathermap.org/img/wn/${time?.weather[0].icon}@2x.png`}
+                      src={`https://openweathermap.org/img/wn/${time?.weather[0]?.icon}@2x.png`}
                       alt="sun logo"
                       className="meteo-icon"
                     />
