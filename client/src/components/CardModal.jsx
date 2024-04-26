@@ -29,7 +29,7 @@ function CardModal({ destination, onClose, manageLikes }) {
    */
   const getTime = () => {
     axios
-      .get(`http://worldtimeapi.org/api/timezone/${destination.TimeZone}`)
+      .get(`https://worldtimeapi.org/api/timezone/${destination.TimeZone}`)
       .then((response) => {
         setTimeZone(response.data);
       })
@@ -60,7 +60,7 @@ function CardModal({ destination, onClose, manageLikes }) {
   const getWeather = (KEYWEATHER) => {
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${destination.Capital}&appid=${KEYWEATHER}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${destination.Capital}&appid=${KEYWEATHER}`
       )
       .then((response) => {
         setTime(response.data);
@@ -188,7 +188,7 @@ function CardModal({ destination, onClose, manageLikes }) {
                 <div className="weather-blocks">
                   <div className="weather">
                     <img
-                      src={`https://openweathermap.org/img/wn/${time?.weather[0].icon}@2x.png`}
+                      src={`https://openweathermap.org/img/wn/${time?.weather[0]?.icon}@2x.png`}
                       alt="sun logo"
                       className="meteo-icon"
                     />

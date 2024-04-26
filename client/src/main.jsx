@@ -4,27 +4,47 @@ import App from "./App";
 import Home from "./pages/Home";
 import AboutList from "./pages/AboutList";
 import Contact from "./pages/Contact";
+import CountrySelectionManager from "./components/CountrySelectionManager";
+import destinations from "./data/destinations";
+import ManageLikes from "./components/LikeDestinationsManagers";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+function Main() {
+  // create managers
+  const selectionManager = new CountrySelectionManager();
+  const manageLikes = new ManageLikes();
+  const router = createBrowserRouter([
+    {
+      element: (
+        <App selectionManager={selectionManager} destinations={destinations} />
+      ),
+      children: [
+        {
+          path: "/",
+          element: (
+            <Home
+              manageLikes={manageLikes}
+              selectionManager={selectionManager}
+              destinations={destinations}
+            />
+          ),
+        },
+        {
+          path: "/about",
+          element: <AboutList />,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
+        },
+      ],
+    },
+  ]);
 
-const router = createBrowserRouter([
-  {
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/about",
-        element: <AboutList />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-    ],
-  },
-]);
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  );
+}
 
-root.render(<RouterProvider router={router} />);
+ReactDOM.createRoot(document.getElementById("root")).render(<Main />);
