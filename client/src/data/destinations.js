@@ -7,7 +7,7 @@ const destinations = [
     Text: "Discover Mexico, a country rich in history, culture, and diverse landscapes.",
     TextDesktop:
       "From its tropical beaches to archaeological sites, every corner of Mexico offers a unique experience. Enjoy delicious cuisine, picturesque colonial towns, and colorful festivities.",
-    isFavorite: true,
+    isFavorite: false,
     Capital: "Mexico City",
     CountryCode: "mx",
     Currency: "MXN",
