@@ -24,7 +24,7 @@ $color-4: #a0a603;
   background-color: white;
   padding: 10px;
   border-bottom-right-radius: 15px;
-  font-size: small;
+  font-size: 1rem;
 }
 
 .DlinkHeader {
@@ -61,12 +61,12 @@ $color-4: #a0a603;
   height: 30px;
   margin-top: 5px;
   border-radius: 7px;
-  margin-left: 30px;
   outline: none;
   border: solid 1px rgb(216, 214, 214);
   font-family: $primary-font;
   font-weight: 100;
-  font-size: 0.8rem;
+  margin-right: 1.5rem;
+  font-size: 1rem;
   background-image: url("../assets/images/chercher.png");
   background-repeat: no-repeat;
   background-size: 12px;
