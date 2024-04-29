@@ -27,7 +27,7 @@ const teamMembers = [
       "https://media.discordapp.net/attachments/1225461642146349148/1230102505564934144/Laurent.jpg?ex=6632193b&is=661fa43b&hm=8fda35696a47ee41a295e63096b64cc63d9bfd47c99245fd0b3863cfa7242412&=&format=webp&width=467&height=623",
     name: "Laurent Baudin",
     team: "Crew Dragon",
-    desc: "An former developer at the Wild Code School, he navigated with enthusiasm through the world of web development. However, due to personal reasons, he has decided to take a break from coding and pursue other interests. His thirst for learning and his commitment make him a promising asset for any project requiring creativity and technical expertise.",
+    desc: "A former developer at the Wild Code School, he navigated with enthusiasm through the world of web development. However, due to personal reasons, he has decided to take a break from coding and pursue other interests. His thirst for learning and his commitment make him a promising asset for any project requiring creativity and technical expertise.",
     linkedin: "https://www.linkedin.com/in/laurent-bauduin-868601250/",
     github: "https://github.com/Laurent-Bauduin",
     email: "mailto:laurent.bauduin0@gmail.com",
