@@ -94,7 +94,7 @@ function HeaderNavMobile({ selectionManager, destinations }) {
         <img src={logo} alt="logo" id="HeaderLogo" />
       </div>
       <div className="HearderTitle">
-        <p>Bienvenue chez</p>
+        <p>Welcome to</p>
         <h1>GLOBE GUIDE</h1>
         {location.pathname === "/" && (
           <div className="DinputBtn">

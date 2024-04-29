@@ -1,7 +1,10 @@
-import { useState } from "react";
+import useLocalStorage from "./useLocalStorage";
 
 function ManageLikes() {
-  const [likeDestination, setLikeDestination] = useState(new Map());
+  const [likeDestination, setLikeDestination] = useLocalStorage(
+    "likeSaved",
+    new Map()
+  );
 
   const addOrRemoveDestination = (destination) => {
     const newMap = new Map(likeDestination);

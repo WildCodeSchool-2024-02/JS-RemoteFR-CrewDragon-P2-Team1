@@ -14,11 +14,11 @@ function Contact() {
     e.preventDefault();
     // Formate le message
     if (sexe && nom && prenom && messages && email) {
-      const messageContent = `Bonjour,  ${nom} ${prenom}. Nous avons bien reçu votre message. L'équipe Globe Guide traitera votre demande dans les plus brefs délais. Si vous avez d'autres questions n'hésitez pas à nous recontacter.`;
+      const messageContent = `Hello  ${nom} ${prenom} ! We have received your message. The Globe Guide team will process your request as soon as possible. If you have any further questions, please do not hesitate to contact us.`;
       setMessage(messageContent);
       setMessageVisible(true);
     } else {
-      alert("Veuillez remplir tous les champs obligatoires.");
+      alert("Please complete all required fields.");
     }
   };
 
@@ -34,21 +34,20 @@ function Contact() {
           <div className="container_contact">
             <div>
               {!messageVisible && (
-                <h2 className="title3">Besoin d'un conseil </h2>
+                <h2 className="title3">Need some advice ? </h2>
               )}
               {!messageVisible && (
-                <h3 className="title">Un projet de voyage, une question ? </h3>
+                <h3 className="title">A travel project, a question? </h3>
               )}
               {!messageVisible && (
                 <p className="para">
                   {" "}
-                  Vous recherchez un conseil, des renseignements sur une
-                  destination, des détails sur un programme ? Ou bien peut-être
-                  souhaitez-vous simplement nous faire part de vos remarques ?
-                  N'hésitez pas à nous écrire. Nous vous répondrons dans les
-                  plus brefs délais. Notre équipe Globe Guide est disponible
-                  dans un esprit d'écoute, de conseil et de convivialité en
-                  agence ou à distance.
+                  Are you looking for advice, information about a destination,
+                  details about a program? Or perhaps you just want to share
+                  your feedback with us? Feel free to write to us. We will
+                  respond as soon as possible. Our Globe Guide team is available
+                  with a spirit of listening, advice, and friendliness in person
+                  or remotely.
                 </p>
               )}
             </div>
@@ -60,10 +59,10 @@ function Contact() {
                   onChange={(e) => setSexe(e.target.value)}
                   className="select"
                 >
-                  <option value="">Civilité</option>
-                  <option value="monsieur">M.</option>
-                  <option value="madame">Mme.</option>
-                  <option value="madame">Autres</option>
+                  <option value="">Title</option>
+                  <option value="monsieur">Mr.</option>
+                  <option value="madame">Ms.</option>
+                  <option value="madame">Mx</option>
                 </select>
                 <div className="name">
                   <input
@@ -73,7 +72,7 @@ function Contact() {
                     name="firstName"
                     value={nom}
                     onChange={(e) => setNom(e.target.value)}
-                    placeholder="Nom"
+                    placeholder="Last Name"
                   />
 
                   <input
@@ -83,7 +82,7 @@ function Contact() {
                     name="lastName"
                     value={prenom}
                     onChange={(e) => setPrenom(e.target.value)}
-                    placeholder="Prénom"
+                    placeholder="First Name"
                   />
                 </div>
 
@@ -105,7 +104,7 @@ function Contact() {
                     name="message"
                     value={messages}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Message pour l'équipe GlobeGuide."
+                    placeholder="Message to the Globe Guide team."
                   />
                 </div>
 
@@ -115,7 +114,7 @@ function Contact() {
                     type="submit"
                     onClick={handleSubmit}
                   >
-                    Envoyer
+                    Submit
                   </button>
                 </div>
               </form>
