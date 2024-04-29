@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import useLocalStorage from "./useLocalStorage";
 
 function ManageLikes() {
@@ -19,8 +18,6 @@ function ManageLikes() {
     }
     setLikeDestination(newMap);
   };
-
-  useEffect(() => {}, [likeDestination]);
 
   return { likeDestination, addOrRemoveDestination };
 }

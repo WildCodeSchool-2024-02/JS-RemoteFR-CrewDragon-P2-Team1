@@ -9,8 +9,7 @@ function getStorageValue(key, defaultValue) {
       return defaultValue;
     }
 
-    const parsedMapFromStorage = new Map(JSON.parse(localStorage.getItem(key)));
-    return parsedMapFromStorage;
+    return new Map(JSON.parse(savedMap));
   }
 
   return defaultValue;
