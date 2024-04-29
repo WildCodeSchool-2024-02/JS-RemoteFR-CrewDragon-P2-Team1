@@ -7,7 +7,7 @@ const destinations = [
     Text: "From the ancient ruins to the bustling streets of modern metropolises, Mexico offers a captivating blend of the old and the new.",
     TextDesktop:
       "From its tropical beaches to archaeological sites, every corner of Mexico offers a unique experience. Enjoy delicious cuisine, picturesque colonial towns, and colorful festivities.",
-    isFavorite: true,
+    isFavorite: false,
     Capital: "Mexico City",
     CountryCode: "mx",
     Currency: "MXN",

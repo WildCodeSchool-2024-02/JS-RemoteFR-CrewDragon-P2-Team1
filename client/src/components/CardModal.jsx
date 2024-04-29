@@ -86,7 +86,7 @@ function CardModal({ destination, onClose, manageLikes }) {
 
   useEffect(() => {
     const KEYWEATHER = "a64b288f12ac5afada93e8e8c413d270";
-    const KEYCHANGE = "a9ac5f398a1be13e9f3d8995";
+    const KEYCHANGE = "c98781ff9e33e49cc26f34ff";
     getPublicHolidays();
     getWeather(KEYWEATHER);
     getExchange(KEYCHANGE);
