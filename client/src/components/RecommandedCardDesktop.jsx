@@ -16,7 +16,17 @@ function RecommandedCardDesktop({
   return (
     <div className="container">
       <div className="card">
-        <div className="card__header">
+        <div
+          className="card__header"
+          onClick={() => handleClick(destination.Name)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === "Space") {
+              handleClick(destination.Name);
+            }
+          }}
+          role="button"
+          tabIndex={0}
+        >
           <img
             src={destination.Src}
             alt={destination.Name}

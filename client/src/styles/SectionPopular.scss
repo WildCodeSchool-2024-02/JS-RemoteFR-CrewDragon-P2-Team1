@@ -22,7 +22,8 @@ body {
 h3 {
   font-family: $primary-font;
   font-size: 1.5rem;
-  color: black;
+  color: #1d242f;
+  font-weight: 700;
 }
 
 /*La section popular et ses cartes*/
@@ -54,6 +55,11 @@ h3 {
           width: 100%;
           height: 90%;
           border-radius: 1rem;
+          transition: transform 0.3s ease-in-out;
+        }
+
+        &:hover {
+          transform: scale(1.1);
         }
       }
       .desc {
@@ -159,6 +165,7 @@ h3 {
         gap: 1.5rem;
         .PopularContainer {
           justify-content: center;
+          width: 100%;
           .CardsContainer {
             .PopularLeft {
               width: 45%;
@@ -276,7 +283,6 @@ h3 {
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-around;
-      gap: 2rem;
     }
     .button__svg__nav {
       display: block;
@@ -289,10 +295,10 @@ h3 {
     }
     .PopularContainer {
       .CardsContainer {
-        height: 13rem;
-        width: 30rem;
+        height: 10rem;
+        width: 24rem;
         .PopularLeft {
-          width: 55%;
+          width: 45%;
           margin-left: 0.9rem;
           .ImgPays {
             border-radius: 0.5rem;

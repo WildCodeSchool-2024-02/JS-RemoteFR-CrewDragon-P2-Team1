@@ -12,7 +12,7 @@ $color-4: #a0a603;
 //MobileNav
 .HearderContainer {
   background: linear-gradient($primary-color, $second-color, $terciary-color);
-  padding-bottom: 7rem;
+  padding-bottom: 5rem;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
   color: aliceblue;
@@ -39,7 +39,6 @@ $color-4: #a0a603;
   border-radius: 5px;
   outline: none;
   border: solid 1px white;
-  padding-left: 20px;
   padding-top: 3px;
   padding-bottom: 3px;
   font-family: $primary-font;
@@ -57,9 +56,8 @@ $color-4: #a0a603;
 }
 
 #HeaderLogo {
-  margin-top: 10px;
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .NavLogo * {
@@ -102,4 +100,20 @@ $color-4: #a0a603;
 }
 .linkHeader {
   display: flex;
+}
+
+/*LA RESPONSIVE*/
+/* téléphone en portrait*/
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  #HeaderLogo {
+    width: 6rem;
+    height: 6rem;
+    margin-right: 1rem;
+  }
+}
+
+/* La tablette*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
 }

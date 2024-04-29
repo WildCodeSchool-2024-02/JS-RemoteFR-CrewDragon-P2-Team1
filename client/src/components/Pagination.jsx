@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 
 function Pagination({ nPages, page, setPage }) {
-  const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
+  const startPage = Math.floor((page - 1) / 5) * 5 + 1;
+  const endPage = Math.min(startPage + 4, nPages);
 
   const goToNextPage = () => {
     if (page !== nPages) setPage(page + 1);
@@ -32,7 +33,10 @@ function Pagination({ nPages, page, setPage }) {
           </svg>
         </li>
 
-        {pageNumbers.map((pgNumber) => (
+        {Array.from(
+          { length: endPage - startPage + 1 },
+          (_, i) => startPage + i
+        ).map((pgNumber) => (
           <li key={pgNumber}>
             <button
               type="button"
