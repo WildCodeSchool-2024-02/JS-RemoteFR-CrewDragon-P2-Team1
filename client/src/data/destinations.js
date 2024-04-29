@@ -556,7 +556,7 @@ const destinations = [
     TextDesktop:
       "Grenada is a Caribbean island known for its white sandy beaches, crystal-clear waters, lush vegetation, and picturesque mountains.",
     isFavorite: false,
-    Capital: "Saint-George's",
+    Capital: "Saint-George",
     CountryCode: "gd",
     Currency: "XCD",
   },
@@ -753,7 +753,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Rome",
     CountryCode: "it",
-    Currency: "Euro",
+    Currency: "EUR",
   },
   {
     ID: 59,
@@ -766,7 +766,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Saint Helier",
     CountryCode: "je",
-    Currency: "Pound Sterling",
+    Currency: "GBP",
   },
   {
     ID: 60,
@@ -779,7 +779,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Kingston",
     CountryCode: "jm",
-    Currency: "Jamaican Dollar",
+    Currency: "JMD",
   },
   {
     ID: 61,
@@ -805,7 +805,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Seoul",
     CountryCode: "kr",
-    Currency: "South Korean Won",
+    Currency: "KRW",
   },
   {
     ID: 63,
@@ -818,7 +818,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Nur-Sultan",
     CountryCode: "kz",
-    Currency: "Kazakhstani Tenge",
+    Currency: "KZT",
   },
   {
     ID: 64,
@@ -831,7 +831,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Vaduz",
     CountryCode: "li",
-    Currency: "Swiss Franc",
+    Currency: "CHF",
   },
   {
     ID: 65,
@@ -844,7 +844,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Maseru",
     CountryCode: "ls",
-    Currency: "Lesotho Loti",
+    Currency: "LSL",
   },
   {
     ID: 66,
@@ -857,7 +857,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Vilnius",
     CountryCode: "lt",
-    Currency: "Euro",
+    Currency: "EUR",
   },
   {
     ID: 67,
@@ -870,7 +870,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Luxembourg",
     CountryCode: "lu",
-    Currency: "Euro",
+    Currency: "EUR",
   },
   {
     ID: 68,
@@ -883,7 +883,7 @@ const destinations = [
     isFavorite: false,
     Capital: "Riga",
     CountryCode: "lv",
-    Currency: "Euro",
+    Currency: "EUR",
   },
   {
     ID: 70,
