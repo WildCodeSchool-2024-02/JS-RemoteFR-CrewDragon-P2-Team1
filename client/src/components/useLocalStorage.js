@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-// eslint-disable-next-line consistent-return
 function getStorageValue(key, defaultValue) {
   // getting stored value
   if (typeof window !== "undefined") {
@@ -11,9 +10,10 @@ function getStorageValue(key, defaultValue) {
     }
 
     const parsedMapFromStorage = new Map(JSON.parse(localStorage.getItem(key)));
-
     return parsedMapFromStorage;
   }
+
+  return defaultValue;
 }
 
 const useLocalStorage = (key, defaultValue) => {
