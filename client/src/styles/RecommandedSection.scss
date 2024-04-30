@@ -45,6 +45,7 @@ body {
   max-width: 1200px;
   height: 100%;
   margin: 0.8rem 0;
+  padding-bottom: 2rem;
   .card {
     display: flex;
     flex-direction: column;
@@ -301,6 +302,7 @@ body {
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-around;
+      padding-bottom: 2rem;
       .container {
         height: 35rem;
         .card {
